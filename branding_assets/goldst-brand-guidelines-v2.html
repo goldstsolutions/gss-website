@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold St Solutions — Brand Guidelines v2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ══════════════════════════════════════════
+   DESIGN TOKENS
+   ══════════════════════════════════════════ */
+:root {
+  /* Gold system */
+  --gold:          #D4B96A;
+  --gold-bright:   #E2CB85;
+  --gold-muted:    #A8904E;
+  --gold-dim:      rgba(212,185,106,0.12);
+  --gold-border:   rgba(212,185,106,0.18);
+  --gold-border-mid: rgba(212,185,106,0.32);
+
+  /* Dark system */
+  --void:          #07090D;
+  --navy:          #0B1220;
+  --navy-mid:      #0F1A2E;
+  --navy-light:    #162338;
+  --steel:         #1C2D44;
+
+  /* Text */
+  --white:         #FFFFFF;
+  --text-primary:  rgba(255,255,255,0.92);
+  --text-body:     rgba(255,255,255,0.62);
+  --text-muted:    rgba(255,255,255,0.28);
+
+  /* Semantic */
+  --success:       #4CAF82;
+  --error:         #C05252;
+}
+
+/* ══════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════ */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--void);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   GRID TEXTURE UTILITY
+   ══════════════════════════════════════════ */
+.grid-texture {
+  background-image:
+    linear-gradient(var(--gold-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gold-dim) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ══════════════════════════════════════════
+   COVER PAGE
+   ══════════════════════════════════════════ */
+.cover {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--gold-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gold-dim) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 20%, transparent 75%);
+}
+
+.cover-glow {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,185,106,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cover-glow-2 {
+  position: absolute;
+  bottom: -300px; left: -150px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,185,106,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cover-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 72px;
+  border-bottom: 1px solid var(--gold-border);
+  position: relative;
+  z-index: 2;
+}
+
+.cover-top-bar-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+}
+
+.cover-top-bar-version {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.cover-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 72px;
+  position: relative;
+  z-index: 2;
+}
+
+.cover-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.48em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.3s forwards;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--gold-muted);
+}
+
+.cover-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(64px, 8vw, 112px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.5s forwards;
+}
+
+.cover-title-gold {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(64px, 8vw, 112px);
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: block;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.6s forwards;
+}
+
+.cover-descriptor {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 56px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.7s forwards;
+}
+
+.cover-rule {
+  width: 64px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.8s forwards;
+}
+
+.cover-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 48px;
+  width: fit-content;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.9s forwards;
+}
+
+.cover-meta-label {
+  font-size: 8px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.cover-meta-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.cover-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 72px;
+  border-top: 1px solid var(--gold-border);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 1.0s forwards;
+}
+
+.cover-bottom-brand {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.cover-bottom-brand span { color: var(--gold); }
+
+.cover-bottom-contact {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: right;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+}
+
+/* ══════════════════════════════════════════
+   NAV / TOC
+   ══════════════════════════════════════════ */
+.toc-section {
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--gold-border);
+  padding: 72px;
+}
+
+.toc-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.toc-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.toc-title span { color: var(--gold); }
+
+.toc-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.toc-item {
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.toc-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.toc-item:hover {
+  border-color: var(--gold-border-mid);
+  background: var(--navy-light);
+}
+
+.toc-item:hover::before { opacity: 1; }
+
+.toc-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-muted);
+  min-width: 28px;
+}
+
+.toc-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ══════════════════════════════════════════
+   SECTION LAYOUT
+   ══════════════════════════════════════════ */
+.section {
+  padding: 96px 72px;
+  border-bottom: 1px solid var(--gold-border);
+  position: relative;
+}
+
+.section:nth-child(odd) { background: var(--void); }
+.section:nth-child(even) { background: var(--navy-mid); }
+
+.section-header {
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--gold-muted);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  margin-bottom: 14px;
+}
+
+.section-title span { color: var(--gold); }
+
+.section-rule {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-body);
+  max-width: 620px;
+  line-height: 1.75;
+}
+
+/* ══════════════════════════════════════════
+   01 — BRAND PHILOSOPHY
+   ══════════════════════════════════════════ */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.phil-card {
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.phil-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent 70%);
+}
+
+.phil-card-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 16px;
+}
+
+.phil-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.phil-card-body {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.75;
+}
+
+.voice-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.voice-chip {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+}
+
+.positioning-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.positioning-quote span { color: var(--gold); }
+
+.pillars-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.pillar-card {
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  padding: 28px;
+  text-align: center;
+}
+
+.pillar-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+  opacity: 0.35;
+}
+
+.pillar-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.pillar-body {
+  font-size: 12px;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════
+   02 — COLOR PALETTE
+   ══════════════════════════════════════════ */
+.palette-primary {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.palette-secondary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.color-card {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+}
+
+.color-swatch {
+  width: 100%;
+}
+
+.color-info {
+  background: var(--navy);
+  padding: 18px 20px;
+}
+
+.color-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.color-role {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.color-hex {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--gold);
+  background: var(--gold-dim);
+  padding: 3px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.color-values {
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-family: monospace;
+}
+
+.color-combos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.combo-tile {
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--gold-border);
+}
+
+.combo-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.combo-sub {
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+/* ══════════════════════════════════════════
+   03 — TYPOGRAPHY
+   ══════════════════════════════════════════ */
+.type-showcase {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.type-card {
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.type-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent 60%);
+}
+
+.type-card-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 24px;
+  font-family: 'Syne', sans-serif;
+}
+
+.type-display-huge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.type-display-huge span { color: var(--gold); }
+
+.type-tagline {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-top: 16px;
+}
+
+.type-scale-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.type-scale-table tr {
+  border-bottom: 1px solid var(--gold-border);
+}
+
+.type-scale-table tr:last-child { border-bottom: none; }
+
+.type-scale-table td {
+  padding: 14px 0;
+  vertical-align: middle;
+}
+
+.type-scale-sample {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.type-scale-meta {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: right;
+  font-family: monospace;
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   04 — DOCUMENT FORMATTING
+   ══════════════════════════════════════════ */
+.doc-preview-full {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 48px 96px rgba(0,0,0,0.5);
+  margin-bottom: 48px;
+}
+
+.dp-cover {
+  background: var(--navy);
+  padding: 56px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dp-cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--gold-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gold-dim) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+.dp-cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright) 50%, var(--gold));
+}
+
+.dp-cover::after {
+  content: '';
+  position: absolute;
+  bottom: -160px; right: -120px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,185,106,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.dp-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.dp-eyebrow::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--gold-muted);
+}
+
+.dp-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.dp-title span { color: var(--gold); }
+
+.dp-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.dp-rule {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.dp-meta {
+  display: flex;
+  gap: 40px;
+  position: relative;
+}
+
+.dp-meta-label {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.dp-meta-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.dp-body {
+  background: var(--navy-mid);
+  padding: 44px 64px;
+}
+
+.dp-h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-left: 3px solid var(--gold);
+  padding-left: 14px;
+  margin-bottom: 18px;
+}
+
+.dp-h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
+  margin-top: 18px;
+}
+
+.dp-p {
+  font-size: 12px;
+  color: var(--text-body);
+  line-height: 1.75;
+  margin-bottom: 20px;
+  max-width: 540px;
+}
+
+.dp-infobox {
+  background: var(--gold-dim);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 5px 5px 0;
+  padding: 16px 20px;
+  margin-bottom: 22px;
+}
+
+.dp-infobox-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.dp-infobox-body {
+  font-size: 12px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.dp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.dp-table thead tr {
+  background: var(--navy);
+  border-top: 1px solid var(--gold-border-mid);
+  border-bottom: 1px solid var(--gold-border-mid);
+}
+
+.dp-table thead th {
+  padding: 10px 16px;
+  text-align: left;
+  color: var(--gold);
+  font-family: 'Syne', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.dp-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.dp-table tbody td {
+  padding: 10px 16px;
+  color: var(--text-body);
+}
+
+/* Formatting spec table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+}
+
+.spec-table thead tr {
+  background: var(--navy);
+  border-bottom: 1px solid var(--gold-border-mid);
+}
+
+.spec-table thead th {
+  padding: 12px 18px;
+  text-align: left;
+  color: var(--gold);
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.spec-table tbody tr:nth-child(even) { background: var(--navy); }
+.spec-table tbody tr:nth-child(odd) { background: var(--navy-mid); }
+
+.spec-table tbody td {
+  padding: 12px 18px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--gold-border);
+  vertical-align: top;
+}
+
+.spec-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.mono-pill {
+  font-family: monospace;
+  font-size: 10px;
+  background: var(--gold-dim);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   05 — COMPONENT LIBRARY
+   ══════════════════════════════════════════ */
+.component-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.comp-card {
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.comp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent 60%);
+}
+
+.comp-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 24px;
+}
+
+/* Buttons */
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  border-radius: 3px;
+  border: none;
+  cursor: default;
+}
+
+.btn-primary { background: var(--gold); color: var(--void); }
+.btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold-border-mid); }
+.btn-ghost { background: var(--gold-dim); color: var(--gold); }
+
+/* Tags */
+.tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 13px;
+  border-radius: 2px;
+}
+
+.tag-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+.tag-neutral { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); }
+
+/* Stats */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-box {
+  background: var(--navy-mid);
+  border: 1px solid var(--gold-border);
+  border-radius: 5px;
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Wordmark variations */
+.wm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.wm-tile {
+  border-radius: 6px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid var(--gold-border);
+}
+
+.wm-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-align: center;
+  font-size: 20px;
+}
+
+.wm-sub {
+  font-family: 'Syne', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════════════════
+   06 — DO / DON'T
+   ══════════════════════════════════════════ */
+.dodont-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.do-card, .dont-card {
+  background: var(--navy);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 36px;
+}
+
+.do-card { border-top: 3px solid var(--success); }
+.dont-card { border-top: 3px solid var(--error); }
+
+.do-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--success); margin-bottom: 24px; }
+.dont-tag { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--error); margin-bottom: 24px; }
+
+.do-card li, .dont-card li {
+  font-size: 13px;
+  color: var(--text-body);
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.55;
+  list-style: none;
+}
+
+.do-card li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+.dont-card li::before { content: '✗'; position: absolute; left: 0; color: var(--error); font-weight: 700; }
+
+/* ══════════════════════════════════════════
+   07 — CODE REFERENCE
+   ══════════════════════════════════════════ */
+.code-block {
+  background: var(--void);
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  padding: 32px 36px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent 60%);
+}
+
+.code-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 20px;
+}
+
+.code-pre {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+  white-space: pre-wrap;
+}
+
+.code-pre .c { color: var(--gold); }
+.code-pre .cm { color: rgba(255,255,255,0.3); font-style: italic; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════ */
+.site-footer {
+  background: var(--navy);
+  border-top: 1px solid var(--gold-border);
+  padding: 56px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.footer-brand {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.footer-brand span { color: var(--gold); }
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-version {
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 4px;
+}
+
+.footer-tagline {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.footer-contact {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: right;
+  line-height: 2;
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .cover-body, .toc-section, .section { padding: 64px 40px; }
+  .philosophy-grid, .type-showcase, .component-grid, .dodont-grid { grid-template-columns: 1fr; }
+  .palette-primary { grid-template-columns: 1fr; }
+  .palette-secondary, .color-combos { grid-template-columns: repeat(2, 1fr); }
+  .toc-grid, .pillars-row, .wm-grid { grid-template-columns: repeat(2, 1fr); }
+  .cover-meta-grid { grid-template-columns: repeat(2, 1fr); }
+  .site-footer { flex-direction: column; text-align: center; }
+  .footer-contact { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     COVER
+     ══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-glow"></div>
+  <div class="cover-glow-2"></div>
+
+  <div class="cover-top-bar">
+    <div class="cover-top-bar-label">Brand Identity Guidelines</div>
+    <div class="cover-top-bar-version">v2.0 — 2026</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-eyebrow">Gold St Solutions</div>
+    <div class="cover-title">BRAND</div>
+    <span class="cover-title-gold">GUIDELINES</span>
+    <div class="cover-descriptor">AI & Tech Consulting Agency</div>
+    <div class="cover-rule"></div>
+    <div class="cover-meta-grid">
+      <div>
+        <div class="cover-meta-label">Document Type</div>
+        <div class="cover-meta-val">Brand Style Guide</div>
+      </div>
+      <div>
+        <div class="cover-meta-label">Version</div>
+        <div class="cover-meta-val">2.0</div>
+      </div>
+      <div>
+        <div class="cover-meta-label">Last Updated</div>
+        <div class="cover-meta-val">March 2026</div>
+      </div>
+      <div>
+        <div class="cover-meta-label">Maintained By</div>
+        <div class="cover-meta-val">Isabelle Hanson</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom-bar">
+    <div class="cover-bottom-brand">GOLD ST <span>SOLUTIONS</span></div>
+    <div class="cover-bottom-contact">
+      isabelle@goldstsolutions.com &nbsp;·&nbsp; 617-943-6865<br>
+      867 Boylston St, #1419, Boston MA 02116
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TABLE OF CONTENTS
+     ══════════════════════════════════════════ -->
+<div class="toc-section">
+  <div class="toc-header">
+    <div class="toc-title">CONTENTS</div>
+    <div class="toc-sub">7 sections</div>
+  </div>
+  <div class="toc-grid">
+    <a href="#philosophy" class="toc-item"><span class="toc-num">01</span><span class="toc-label">Brand Philosophy</span></a>
+    <a href="#color" class="toc-item"><span class="toc-num">02</span><span class="toc-label">Color Palette</span></a>
+    <a href="#typography" class="toc-item"><span class="toc-num">03</span><span class="toc-label">Typography</span></a>
+    <a href="#formatting" class="toc-item"><span class="toc-num">04</span><span class="toc-label">Document Formatting</span></a>
+    <a href="#components" class="toc-item"><span class="toc-num">05</span><span class="toc-label">Component Library</span></a>
+    <a href="#dodont" class="toc-item"><span class="toc-num">06</span><span class="toc-label">Do's & Don'ts</span></a>
+    <a href="#reference" class="toc-item"><span class="toc-num">07</span><span class="toc-label">Code Reference</span></a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     01 — BRAND PHILOSOPHY
+     ══════════════════════════════════════════ -->
+<div class="section" id="philosophy">
+  <div class="section-header">
+    <div class="section-eyebrow">01</div>
+    <div class="section-title">Brand <span>Philosophy</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">Gold St Solutions brings Fortune 500-grade AI transformation to SMBs. The brand is authoritative and intelligent — the gravitas of a top-tier consulting firm, with the directness and warmth of a trusted advisor.</p>
+  </div>
+
+  <div class="philosophy-grid">
+    <div class="phil-card">
+      <div class="phil-card-label">Brand Voice</div>
+      <div class="phil-card-title">Clear. Confident. Concrete.</div>
+      <div class="phil-card-body">No jargon for its own sake. We translate complex AI concepts into plain business language. We speak to outcomes, not technology. Every sentence should be something a founder can act on.</div>
+      <div class="voice-chips">
+        <span class="voice-chip">Strategic</span>
+        <span class="voice-chip">Approachable</span>
+        <span class="voice-chip">Direct</span>
+        <span class="voice-chip">Expert</span>
+        <span class="voice-chip">Human</span>
+      </div>
+    </div>
+    <div class="phil-card">
+      <div class="phil-card-label">Brand Positioning</div>
+      <div class="positioning-quote">"We bring the same AI transformation we delivered for <span>Google and Amazon</span> — right-sized for your business."</div>
+      <div class="phil-card-body" style="font-size:12px;">The champagne gold represents premium value. The deep navy signals trust, depth, and intelligence. Together: serious work, done with integrity.</div>
+    </div>
+  </div>
+
+  <div class="pillars-row">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Focus</div>
+      <div class="pillar-body">Understand the business, the problem, and the process before recommending any solution.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Proof</div>
+      <div class="pillar-body">Prove success through iterative POCs before clients invest in building full solutions.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Use</div>
+      <div class="pillar-body">Tech is useless if no one uses it. We deliver SOPs and training to ensure adoption.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     02 — COLOR PALETTE
+     ══════════════════════════════════════════ -->
+<div class="section" id="color">
+  <div class="section-header">
+    <div class="section-eyebrow">02</div>
+    <div class="section-title">Color <span>Palette</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">Two anchors: deep navy and champagne gold. Every other tone is derived from these, ensuring every document, deck, or digital asset feels unmistakably Gold St.</p>
+  </div>
+
+  <div class="palette-primary">
+    <div class="color-card">
+      <div class="color-swatch" style="height:160px; background:#0B1220;"></div>
+      <div class="color-info">
+        <div class="color-name">Navy — Primary</div>
+        <div class="color-role">Cover pages, table headers, card backgrounds, dark sections</div>
+        <div class="color-hex">#0B1220</div>
+        <div class="color-values">RGB 11, 18, 32<br>CMYK 66, 44, 0, 87</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="height:160px; background:#D4B96A;"></div>
+      <div class="color-info">
+        <div class="color-name">Gold — Accent</div>
+        <div class="color-role">Headlines, borders, dividers, icon accents, CTAs</div>
+        <div class="color-hex">#D4B96A</div>
+        <div class="color-values">RGB 212, 185, 106<br>CMYK 0, 13, 50, 17</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="height:160px; background:#E2CB85;"></div>
+      <div class="color-info">
+        <div class="color-name">Gold Bright — Highlight</div>
+        <div class="color-role">Hover states, gradient endpoints, emphasis</div>
+        <div class="color-hex">#E2CB85</div>
+        <div class="color-values">RGB 226, 203, 133<br>CMYK 0, 10, 41, 11</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="palette-secondary">
+    <div class="color-card">
+      <div class="color-swatch" style="height:100px; background:#07090D;"></div>
+      <div class="color-info">
+        <div class="color-name">Void</div>
+        <div class="color-role">Page background</div>
+        <div class="color-hex">#07090D</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="height:100px; background:#0F1A2E;"></div>
+      <div class="color-info">
+        <div class="color-name">Navy Mid</div>
+        <div class="color-role">Document body bg</div>
+        <div class="color-hex">#0F1A2E</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="height:100px; background:#A8904E;"></div>
+      <div class="color-info">
+        <div class="color-name">Gold Muted</div>
+        <div class="color-role">Section labels, eyebrows</div>
+        <div class="color-hex">#A8904E</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="height:100px; background:#FFFFFF;"></div>
+      <div class="color-info" style="background:var(--navy);">
+        <div class="color-name">White</div>
+        <div class="color-role">Primary text on dark</div>
+        <div class="color-hex">#FFFFFF</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-combos">
+    <div class="combo-tile" style="background:#0B1220;">
+      <div class="combo-label" style="color:#D4B96A;">Gold on Navy</div>
+      <div class="combo-sub" style="color:rgba(255,255,255,0.35);">Primary combination</div>
+    </div>
+    <div class="combo-tile" style="background:rgba(212,185,106,0.12); border-color: rgba(212,185,106,0.3);">
+      <div class="combo-label" style="color:#D4B96A;">Gold Dim Panel</div>
+      <div class="combo-sub" style="color:rgba(255,255,255,0.35);">Callout / infobox bg</div>
+    </div>
+    <div class="combo-tile" style="background:#07090D;">
+      <div class="combo-label" style="color:#FFFFFF;">White on Void</div>
+      <div class="combo-sub" style="color:rgba(255,255,255,0.35);">Body text default</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     03 — TYPOGRAPHY
+     ══════════════════════════════════════════ -->
+<div class="section" id="typography">
+  <div class="section-header">
+    <div class="section-eyebrow">03</div>
+    <div class="section-title">Typo<span>graphy</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">Two typefaces carry the brand. Plus Jakarta Sans at weight 800 delivers confident, modern impact for display. Space Grotesk handles body copy with clean, technical legibility.</p>
+  </div>
+
+  <div class="type-showcase">
+    <div class="type-card">
+      <div class="type-card-label">Plus Jakarta Sans 800 — Display / Wordmark / Headings</div>
+      <div class="type-display-huge">GOLD ST<br><span>SOLUTIONS</span></div>
+      <div class="type-tagline">AI & Tech Consulting Agency — Boston, MA</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-label">Type Scale — Word Documents</div>
+      <table class="type-scale-table">
+        <tr>
+          <td><div class="type-scale-sample" style="font-size:26px;">Cover Title</div></td>
+          <td class="type-scale-meta">26pt / 800<br>Uppercase</td>
+        </tr>
+        <tr>
+          <td><div class="type-scale-sample" style="font-size:18px;">Section H1</div></td>
+          <td class="type-scale-meta">18pt / 800<br>+ Gold rule</td>
+        </tr>
+        <tr>
+          <td><div class="type-scale-sample" style="font-size:14px; font-weight:700;">Sub-Heading H2</div></td>
+          <td class="type-scale-meta">14pt / 700</td>
+        </tr>
+        <tr>
+          <td><div style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--text-body);">Body Text</div></td>
+          <td class="type-scale-meta">11pt / 400<br>Line-height 1.6</td>
+        </tr>
+        <tr>
+          <td><div style="font-family:'Syne',sans-serif; font-size:10px; color:var(--gold-muted); letter-spacing:0.2em; text-transform:uppercase;">LABEL / EYEBROW</div></td>
+          <td class="type-scale-meta">9pt / 700<br>+0.35em spacing</td>
+        </tr>
+        <tr>
+          <td><div style="font-size:10px; color:var(--text-muted);">Footer / Caption</div></td>
+          <td class="type-scale-meta">8pt / 400</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="spec-table" style="margin-top:0;">
+    <table class="spec-table" style="box-shadow:none;">
+      <thead><tr><th>Element</th><th>Font / Weight</th><th>Size</th><th>Color</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Document Title</td><td>Plus Jakarta Sans 800</td><td>26pt</td><td><span class="mono-pill">#FFFFFF</span> on navy</td><td>Cover page, uppercase, −0.02em tracking</td></tr>
+        <tr><td>Section H1</td><td>Plus Jakarta Sans 800</td><td>14pt</td><td><span class="mono-pill">#FFFFFF</span></td><td>Gold left border, uppercase</td></tr>
+        <tr><td>Sub-heading H2</td><td>Plus Jakarta Sans 700</td><td>12pt</td><td><span class="mono-pill">#FFFFFF</span> at 75%</td><td>—</td></tr>
+        <tr><td>Body Text</td><td>Space Grotesk 400</td><td>11pt</td><td><span class="mono-pill">#FFFFFF</span> at 62%</td><td>Line-height 1.7</td></tr>
+        <tr><td>Table Header</td><td>Syne 700</td><td>9pt</td><td><span class="mono-pill">#D4B96A</span> on navy</td><td>Uppercase, 0.18em spacing</td></tr>
+        <tr><td>Footer</td><td>Space Grotesk 400</td><td>8pt</td><td><span class="mono-pill">rgba(255,255,255,0.28)</span></td><td>Gold top border</td></tr>
+        <tr><td>Labels / Eyebrow</td><td>Syne 700</td><td>9pt</td><td><span class="mono-pill">#A8904E</span></td><td>0.4em letter-spacing, uppercase</td></tr>
+        <tr><td>Word Doc fallback</td><td>Arial Bold</td><td>—</td><td>—</td><td>When web fonts unavailable</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     04 — DOCUMENT FORMATTING
+     ══════════════════════════════════════════ -->
+<div class="section" id="formatting">
+  <div class="section-header">
+    <div class="section-eyebrow">04</div>
+    <div class="section-title">Document <span>Formatting</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">Every document produced by Gold St Solutions follows these layout standards. Consistency builds trust and signals professionalism at first glance.</p>
+  </div>
+
+  <div class="doc-preview-full">
+    <div class="dp-cover">
+      <div class="dp-cover-grid"></div>
+      <div class="dp-eyebrow">Project Design Document</div>
+      <div class="dp-title">GOLD ST <span>SOLUTIONS</span></div>
+      <div class="dp-subtitle">Client Deliverable — Confidential</div>
+      <div class="dp-rule"></div>
+      <div class="dp-meta">
+        <div><div class="dp-meta-label">Prepared By</div><div class="dp-meta-val">Isabelle Hanson</div></div>
+        <div><div class="dp-meta-label">Client</div><div class="dp-meta-val">Client Name</div></div>
+        <div><div class="dp-meta-label">Date</div><div class="dp-meta-val">March 2026</div></div>
+        <div><div class="dp-meta-label">Version</div><div class="dp-meta-val">1.0</div></div>
+      </div>
+    </div>
+    <div class="dp-body">
+      <div class="dp-h1">1. Overview</div>
+      <div class="dp-h2">1.1 Background & Context</div>
+      <div class="dp-p">This document outlines the proposed AI and automation solution for the client. The current state relies on manual processes that limit efficiency, scalability, and visibility across core business operations.</div>
+      <div class="dp-infobox">
+        <div class="dp-infobox-label">Problem 1 — No Scalable Pipeline</div>
+        <div class="dp-infobox-body">No consistent process for finding new prospects, tracking warm leads, or staying top-of-mind with past clients. The pipeline is effectively invisible.</div>
+      </div>
+      <table class="dp-table">
+        <thead><tr><th>Initiative</th><th>Feasibility</th><th>Impact</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>AI Product Listing</td><td>High</td><td>High</td><td>P1</td></tr>
+          <tr><td>Corporate Outreach Automation</td><td>Medium</td><td>High</td><td>P1</td></tr>
+          <tr><td>Inventory Monitoring</td><td>Medium</td><td>Medium</td><td>P2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <table class="spec-table">
+    <thead><tr><th>Element</th><th>Specification</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Page Size</td><td>US Letter — 8.5" × 11"</td><td>12240 × 15840 DXA in .docx</td></tr>
+      <tr><td>Margins</td><td>1" all sides</td><td>1440 DXA</td></tr>
+      <tr><td>Cover Block</td><td>Full navy bg, gold 3px top rule, grid texture</td><td>Client name + doc type + meta</td></tr>
+      <tr><td>H1 Style</td><td>Left gold border (3px), uppercase, wt 800</td><td>Not underline — left border only</td></tr>
+      <tr><td>Info Boxes</td><td>Gold-dim bg + gold left border (3px)</td><td>For key callouts and problems</td></tr>
+      <tr><td>Table Headers</td><td>Navy bg + gold text, Syne 700, 9pt</td><td>Top + bottom gold border lines</td></tr>
+      <tr><td>Table Rows</td><td>Alternating navy / navy-mid</td><td>No white rows on dark theme docs</td></tr>
+      <tr><td>Footer</td><td>Gold top border, muted text</td><td>Agency · Client · Confidential · Page #</td></tr>
+      <tr><td>Section Dividers</td><td>Gold horizontal rule, 1px, full width</td><td>Between major sections</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════
+     05 — COMPONENT LIBRARY
+     ══════════════════════════════════════════ -->
+<div class="section" id="components">
+  <div class="section-header">
+    <div class="section-eyebrow">05</div>
+    <div class="section-title">Component <span>Library</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">Reusable UI elements for decks, documents, and digital assets. All components derive from the same token system.</p>
+  </div>
+
+  <!-- Wordmark Variations -->
+  <div style="margin-bottom: 48px;">
+    <div style="font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold-muted); margin-bottom:20px;">Wordmark Variations</div>
+    <div class="wm-grid">
+      <div class="wm-tile" style="background:var(--navy);">
+        <div class="wm-text" style="color:var(--gold);">GOLD ST<br>SOLUTIONS</div>
+        <div class="wm-sub" style="color:var(--gold-muted);">AI & Tech Agency</div>
+        <div style="font-size:9px; color:var(--text-muted); margin-top:10px; letter-spacing:0.1em;">Navy bg — full gold</div>
+      </div>
+      <div class="wm-tile" style="background:var(--void);">
+        <div class="wm-text" style="color:var(--white);">GOLD ST<br><span style="color:var(--gold);">SOLUTIONS</span></div>
+        <div class="wm-sub" style="color:var(--text-muted);">AI & Tech Agency</div>
+        <div style="font-size:9px; color:var(--text-muted); margin-top:10px; letter-spacing:0.1em;">Void bg — split</div>
+      </div>
+      <div class="wm-tile" style="background:#F0EDE6; border-color:rgba(0,0,0,0.1);">
+        <div class="wm-text" style="color:#0B1220;">GOLD ST<br><span style="color:#A8904E;">SOLUTIONS</span></div>
+        <div class="wm-sub" style="color:#A8904E;">AI & Tech Agency</div>
+        <div style="font-size:9px; color:#999; margin-top:10px; letter-spacing:0.1em;">Light bg — dark gold</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="component-grid">
+    <div class="comp-card">
+      <div class="comp-label">Buttons</div>
+      <div class="btn-row" style="margin-bottom:16px;">
+        <div class="btn btn-primary">Get Started</div>
+        <div class="btn btn-outline">Learn More</div>
+        <div class="btn btn-ghost">View Case Study</div>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label">Tags & Labels</div>
+      <div class="tag-row">
+        <span class="tag tag-gold">AI Strategy</span>
+        <span class="tag tag-gold">Implementation</span>
+        <span class="tag tag-gold">Managed Services</span>
+        <span class="tag tag-neutral">SMB Focus</span>
+        <span class="tag tag-neutral">Boston, MA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-card" style="margin-bottom:20px;">
+    <div class="comp-label">Key Stats</div>
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-num">5+</div><div class="stat-label">Years at Accenture</div></div>
+      <div class="stat-box"><div class="stat-num">F500</div><div class="stat-label">Proven Track Record</div></div>
+      <div class="stat-box"><div class="stat-num">24h</div><div class="stat-label">Support SLA</div></div>
+    </div>
+  </div>
+
+  <div class="comp-card">
+    <div class="comp-label">Info Box — Problem Statement</div>
+    <div class="dp-infobox" style="margin-bottom:0;">
+      <div class="dp-infobox-label">Problem Label — Short Title Here</div>
+      <div class="dp-infobox-body">Use info boxes for key problem statements, important callouts, or context that must stand out from surrounding body copy. Gold left border on gold-dim background.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     06 — DO'S & DON'TS
+     ══════════════════════════════════════════ -->
+<div class="section" id="dodont">
+  <div class="section-header">
+    <div class="section-eyebrow">06</div>
+    <div class="section-title">Do's &amp; <span>Don'ts</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">These rules protect brand consistency across every touchpoint. When in doubt, refer back to this section.</p>
+  </div>
+
+  <div class="dodont-grid">
+    <div class="do-card">
+      <div class="do-tag">✓ Always Do</div>
+      <ul>
+        <li>Use Plus Jakarta Sans 800 for all display text and headings</li>
+        <li>Keep table headers navy with gold text — always, no exceptions</li>
+        <li>Use the gold left-border style for H1 headings in documents</li>
+        <li>Include a branded cover page on every client-facing deliverable</li>
+        <li>Use info boxes (gold-dim bg + gold left border) for key problems</li>
+        <li>Use "Gold St Solutions · Client · Confidential" in every footer</li>
+        <li>Apply the grid texture on dark cover backgrounds for depth</li>
+        <li>Use <span style="font-family:monospace; font-size:11px; color:var(--gold);">#D4B96A</span> as your single gold source of truth</li>
+      </ul>
+    </div>
+    <div class="dont-card">
+      <div class="dont-tag">✗ Never Do</div>
+      <ul>
+        <li>Use gold as a large area background — it's an accent only</li>
+        <li>Mix in other font families (no Inter, Roboto, or system fonts)</li>
+        <li>Use pure black (#000) for text — use dark navy or void</li>
+        <li>Use white page backgrounds in dark-theme documents</li>
+        <li>Skip the cover page on any client deliverable</li>
+        <li>Use gold text on light or white backgrounds — contrast fails</li>
+        <li>Use more than 2–3 colors on any single page element</li>
+        <li>Alter the wordmark tracking, weight, or casing</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     07 — CODE REFERENCE
+     ══════════════════════════════════════════ -->
+<div class="section" id="reference">
+  <div class="section-header">
+    <div class="section-eyebrow">07</div>
+    <div class="section-title">Code <span>Reference</span></div>
+    <div class="section-rule"></div>
+    <p class="section-desc">Use these exact values when generating branded .docx files, building web assets, or prompting Claude to create branded documents.</p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-label">Color Constants — JavaScript / CSS</div>
+    <div class="code-pre"><span class="cm">/* ── GOLD ST SOLUTIONS — BRAND TOKENS v2.0 ── */</span>
+
+<span class="cm">// Gold system</span>
+const <span class="c">GOLD</span>         = <span class="c">"D4B96A"</span>;   <span class="cm">// Primary — accents, CTAs, table headers</span>
+const <span class="c">GOLD_BRIGHT</span>  = <span class="c">"E2CB85"</span>;   <span class="cm">// Hover states, gradient endpoints</span>
+const <span class="c">GOLD_MUTED</span>   = <span class="c">"A8904E"</span>;   <span class="cm">// Section labels, eyebrow text</span>
+
+<span class="cm">// Navy / dark system</span>
+const <span class="c">VOID</span>         = <span class="c">"07090D"</span>;   <span class="cm">// Page background</span>
+const <span class="c">NAVY</span>         = <span class="c">"0B1220"</span>;   <span class="cm">// Cover pages, card backgrounds</span>
+const <span class="c">NAVY_MID</span>     = <span class="c">"0F1A2E"</span>;   <span class="cm">// Document body background</span>
+
+<span class="cm">// Text</span>
+const <span class="c">WHITE</span>        = <span class="c">"FFFFFF"</span>;   <span class="cm">// Primary headings</span>
+const <span class="c">TEXT_BODY</span>    = <span class="c">"rgba(255,255,255,0.62)"</span>;  <span class="cm">// Body copy</span>
+const <span class="c">TEXT_MUTED</span>   = <span class="c">"rgba(255,255,255,0.28)"</span>;  <span class="cm">// Captions, footnotes</span></div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-label">Word Document Sizes (DXA)</div>
+    <div class="code-pre"><span class="cm">// Page: US Letter 8.5" × 11"</span>
+width: <span class="c">12240</span>,  height: <span class="c">15840</span>
+margins: <span class="c">1440</span> all sides  <span class="cm">// 1 inch</span>
+
+<span class="cm">// Font sizes (half-points: 20 = 10pt)</span>
+cover title:    size <span class="c">52</span>   <span class="cm">// 26pt, Plus Jakarta Sans 800</span>
+section H1:     size <span class="c">28</span>   <span class="cm">// 14pt, 800, gold left border</span>
+section H2:     size <span class="c">24</span>   <span class="cm">// 12pt, 700</span>
+body text:      size <span class="c">22</span>   <span class="cm">// 11pt, regular, line-height 1.6</span>
+table header:   size <span class="c">18</span>   <span class="cm">// 9pt, Syne 700, uppercase</span>
+footer:         size <span class="c">16</span>   <span class="cm">// 8pt, muted</span></div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-label">Prompt Snippet — for Claude or AI document generation</div>
+    <div class="code-pre">Use Gold St Solutions brand (v2.0):
+- Dark background: Navy <span class="c">#0B1220</span> for covers, table headers, cards
+- Page bg: Void <span class="c">#07090D</span>
+- Gold accent: <span class="c">#D4B96A</span> for header text, borders, CTAs, rules
+- Gold bright: <span class="c">#E2CB85</span> for hover / gradient highlights
+- Gold muted: <span class="c">#A8904E</span> for section labels and eyebrows
+- Body text: white at 62% opacity on dark backgrounds
+- Display font: Plus Jakarta Sans 800, uppercase, −0.02em tracking
+- Body font: Space Grotesk 400/500/600
+- Label font: Syne 700, uppercase, 0.38em letter-spacing
+- H1 headings: white, uppercase, gold left-border (3px)
+- Table headers: navy bg + gold text + gold top/bottom rule
+- Info boxes: gold-dim bg (rgba gold 12%) + gold left border
+- Cover: navy bg + grid texture + gold 3px top rule + gold meta values
+- Footer: gold top border, muted white text, centered</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ -->
+<div class="site-footer">
+  <div class="footer-brand">GOLD ST <span>SOLUTIONS</span></div>
+  <div class="footer-center">
+    <div class="footer-version">Brand Guidelines v2.0 — March 2026</div>
+    <div class="footer-tagline">Fortune 500 Expertise. SMB Speed.</div>
+  </div>
+  <div class="footer-contact">
+    isabelle@goldstsolutions.com<br>
+    617-943-6865
+  </div>
+</div>
+
+</body>
+</html>
