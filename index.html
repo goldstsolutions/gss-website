@@ -46,7 +46,7 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1138,6 +1138,7 @@
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#pillars">Our Approach</a></li>
+      <li><a href="#roi">AI Impact Calculator</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1162,11 +1163,11 @@
       </h1>
 
       <p class="hero-sub a3">
-        We help SMBs replace their most expensive manual processes with AI / Tech — in weeks, not years. Get a <strong>free 30-min AI Audit</strong> — we'll map your top opportunities and estimate the dollar impact.
+        We help SMBs replace their most expensive processes with AI / Tech — in weeks, not years. Find out exactly how much manual work is costing you with our <strong>free 2-minute AI Impact Calculator</strong>.
       </p>
 
       <div class="hero-ctas a4">
-        <a href="#contact" class="btn-hero-cta">Get My Free Audit</a>
+        <a href="ai-impact-calculator.html" class="btn-hero-cta" target="_blank" rel="noopener">Calculate My AI Impact</a>
       </div>
     </div>
   </section>
@@ -1262,6 +1263,58 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ROI CALCULATOR TEASER
+       ══════════════════════════════════════════ -->
+  <section class="section bg-mid" id="roi">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto;">
+
+      <!-- Left: copy -->
+      <div>
+        <div class="eyebrow">Free Tool</div>
+        <div class="rule"></div>
+        <h2 class="section-title">See Your <span>AI Impact</span><br>In 2 Minutes</h2>
+        <p class="section-desc" style="margin-bottom:32px;">
+          Enter one manual process — how many people, hours, and what it costs. Our calculator estimates exactly how much time and money AI automation could save you every year.
+        </p>
+        <a href="ai-impact-calculator.html" class="btn-gold" target="_blank" rel="noopener">
+          Calculate My AI Impact
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: stat cards -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:var(--navy-light);border:1px solid var(--gold-border);border-radius:8px;padding:28px 32px;position:relative;overflow:hidden;">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold-muted));"></div>
+          <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold-muted);text-transform:uppercase;margin-bottom:6px;">Average Result</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:var(--gold);letter-spacing:-.02em;line-height:1;">$47K+</div>
+          <div style="font-size:13px;color:var(--text-body);margin-top:6px;">in annual savings or added revenue</div>
+        </div>
+        <div style="background:var(--navy-light);border:1px solid var(--gold-border);border-radius:8px;padding:28px 32px;position:relative;overflow:hidden;">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold-muted));"></div>
+          <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold-muted);text-transform:uppercase;margin-bottom:6px;">Typical AI Reduction</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:var(--gold);letter-spacing:-.02em;line-height:1;">60–80%</div>
+          <div style="font-size:13px;color:var(--text-body);margin-top:6px;">of manual hours eliminated in targeted workflows</div>
+        </div>
+        <div style="background:var(--navy-light);border:1px solid var(--gold-border);border-radius:8px;padding:28px 32px;position:relative;overflow:hidden;">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--gold-muted));"></div>
+          <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--gold-muted);text-transform:uppercase;margin-bottom:6px;">Time to Results</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:var(--gold);letter-spacing:-.02em;line-height:1;">2 Min</div>
+          <div style="font-size:13px;color:var(--text-body);margin-top:6px;">to get your personalized savings estimate</div>
+        </div>
+      </div>
+
+    </div>
+    <style>
+      @media (max-width: 768px) {
+        #roi > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+      }
+    </style>
   </section>
 
   <!-- ══════════════════════════════════════════
