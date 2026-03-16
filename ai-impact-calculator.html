@@ -1168,7 +1168,7 @@ function submitToGoogleForm() {
   formData.append(ENTRY_ANNUAL,     fmt(annualCost));
   formData.append(ENTRY_SAVINGS,    fmt(savings));
 
-  const url = `https://docs.google.com/forms/d/${GOOGLE_FORM_ID}/formResponse`;
+  const url = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
   fetch(url, { method: 'POST', body: formData, mode: 'no-cors' })
     .catch(() => {}); // Silent fail — CORS expected, submission goes through
 }
