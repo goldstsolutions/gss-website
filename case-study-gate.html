@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Case Study — Gold St Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold:            #D4B96A;
+      --gold-bright:     #E2CB85;
+      --gold-muted:      #A8904E;
+      --gold-dim:        rgba(212,185,106,0.12);
+      --gold-border:     rgba(212,185,106,0.18);
+      --gold-border-mid: rgba(212,185,106,0.32);
+      --void:     #07090D;
+      --navy:     #0B1220;
+      --navy-mid: #0F1A2E;
+      --navy-light:#162338;
+      --text-primary: rgba(255,255,255,0.92);
+      --text-body:    rgba(255,255,255,0.62);
+      --text-muted:   rgba(255,255,255,0.28);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--void);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background */
+    .bg-layer {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    }
+    .bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--gold-dim) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gold-dim) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 30%, black 10%, transparent 75%);
+    }
+    .bg-glow {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(212,185,106,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 80% 90%, rgba(11,18,32,0.7) 0%, transparent 55%);
+    }
+
+    .page-wrap {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 540px;
+    }
+
+    /* Logo */
+    .logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .logo span { color: var(--gold); }
+
+    /* Card */
+    .card {
+      background: var(--navy);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      padding: 48px 48px 44px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-bright) 50%, var(--gold));
+    }
+
+    /* Eyebrow */
+    .eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1px;
+      background: var(--gold-muted);
+      flex-shrink: 0;
+    }
+
+    /* Title */
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .card-title span { color: var(--gold); }
+
+    /* Rule */
+    .title-rule {
+      width: 48px; height: 2px;
+      background: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    /* Subtext */
+    .card-sub {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    /* Infobox — brand-standard callout */
+    .infobox {
+      background: var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 5px 5px 0;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .infobox-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .infobox ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .infobox li {
+      font-size: 13px;
+      color: var(--text-body);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .infobox li::before {
+      content: '→';
+      color: var(--gold);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Form */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    label {
+      font-family: 'Syne', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid var(--gold-border);
+      border-radius: 3px;
+      padding: 13px 16px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input::placeholder { color: var(--text-muted); }
+    input:focus {
+      border-color: var(--gold-muted);
+      box-shadow: 0 0 0 3px rgba(212,185,106,0.10);
+    }
+
+    /* Button — brand standard */
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--void);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); opacity: 1; }
+
+    /* Footer note */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--gold-border);
+      gap: 12px;
+    }
+    .footer-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.35);
+    }
+    .footer-brand span { color: var(--gold-muted); }
+    .disclaimer {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .card { padding: 32px 24px 28px; }
+      .card-footer { flex-direction: column; align-items: flex-start; }
+      .disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-layer">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+  </div>
+
+  <div class="page-wrap">
+    <a href="index.html" class="logo">GOLD ST <span>SOLUTIONS</span></a>
+
+    <div class="card">
+      <div class="eyebrow">Free Case Study</div>
+      <h1 class="card-title">10 Real Examples of<br><span>AI Increasing Profit</span></h1>
+      <div class="title-rule"></div>
+      <p class="card-sub">See exactly how service-based SMBs are cutting manual work, doing more, and increasing profit — with the exact solutions used and real results achieved.</p>
+
+      <div class="infobox">
+        <div class="infobox-label">What's Inside</div>
+        <ul>
+          <li>10 real client use cases across different industries</li>
+          <li>The exact AI / automation solutions built for each</li>
+          <li>Real results — hours saved, costs cut, capacity gained</li>
+        </ul>
+      </div>
+
+      <form id="gateForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name"/>
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email"/>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required autocomplete="tel"/>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          Show Me the Case Study
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="card-footer">
+        <div class="footer-brand">GOLD ST <span>SOLUTIONS</span></div>
+        <p class="disclaimer">No spam. Used only to send relevant<br>resources from Gold St Solutions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║       GOOGLE FORM SETUP — CASE STUDY GATE                       ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║                                                                  ║
+  ║  STEP 1 — Add fields to your existing Google Form               ║
+  ║  Go to your existing form → add 3 new Short Answer fields:      ║
+  ║    1. Full Name                                                  ║
+  ║    2. Email Address                                              ║
+  ║    3. Phone Number                                               ║
+  ║                                                                  ║
+  ║  — OR — create a new Google Form with these 4 fields and        ║
+  ║  link it to a new tab in your existing Google Sheet.            ║
+  ║                                                                  ║
+  ║  STEP 2 — Get your Form ID                                       ║
+  ║  Form URL: https://docs.google.com/forms/d/FORM_ID_HERE/edit    ║
+  ║  Copy FORM_ID_HERE → paste below as GOOGLE_FORM_ID              ║
+  ║                                                                  ║
+  ║  STEP 3 — Get entry IDs                                         ║
+  ║  Open form → ⋮ → "Get pre-filled link" → fill dummy values →   ║
+  ║  "Get link" → copy entry.XXXXXXXXX values → paste below        ║
+  ║                                                                  ║
+  ║  STEP 4 — Add email trigger to your Google Sheet                ║
+  ║  Open linked Sheet → Extensions → Apps Script → paste:         ║
+  ║                                                                  ║
+  ║  function onCaseStudySubmit(e) {                                 ║
+  ║    const row = e.values;                                         ║
+  ║    // row[0]=Timestamp, row[1]=Name, row[2]=Email, row[3]=Phone  ║
+  ║    const subject = '📥 Case Study Download: ' + row[1];         ║
+  ║    const body = `                                                ║
+  ║  New case study download                                         ║
+  ║                                                                  ║
+  ║  Name:   ${row[1]}                                               ║
+  ║  Email:  ${row[2]}                                               ║
+  ║  Phone:  ${row[3]}                                               ║
+  ║    `;                                                            ║
+  ║    GmailApp.sendEmail(                                           ║
+  ║      'isabelle@goldstsolutions.com',                             ║
+  ║      subject, body                                               ║
+  ║    );                                                            ║
+  ║  }                                                               ║
+  ║                                                                  ║
+  ║  Save → Triggers → Add Trigger                                   ║
+  ║    Function: onCaseStudySubmit                                   ║
+  ║    Event source: From spreadsheet                                ║
+  ║    Event type: On form submit                                    ║
+  ║  Authorize → Done                                                ║
+  ║                                                                  ║
+  ║  STEP 5 — Paste your values below, then test                    ║
+  ║                                                                  ║
+  ╚══════════════════════════════════════════════════════════════════╝
+  -->
+  <script>
+    /* ── CONFIGURE THESE after following setup guide above ── */
+    const GOOGLE_FORM_ID   = '1FAIpQLScsfySZVxtnokQyjUD0cDuE2uy6TqGALyRFDusR_P84Ay1NnQ';
+    const ENTRY_NAME       = 'entry.2051845793';  // Full Name
+    const ENTRY_EMAIL      = 'entry.2018595672';  // Email Address
+    const ENTRY_PHONE      = 'entry.1477696490';  // Phone Number
+
+    function submitToGoogleForm(name, email, phone) {
+      const formData = new FormData();
+      formData.append(ENTRY_NAME,  name);
+      formData.append(ENTRY_EMAIL, email);
+      formData.append(ENTRY_PHONE, phone);
+
+      const url = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+      fetch(url, { method: 'POST', body: formData, mode: 'no-cors' })
+        .catch(() => {}); // Silent fail — CORS expected, submission goes through
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name  = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if (!name || !email || !phone) return;
+
+      submitToGoogleForm(name, email, phone);
+
+      sessionStorage.setItem('gs_name', name);
+      window.location.href = 'case-study.html';
+    }
+  </script>
+</body>
+</html>
