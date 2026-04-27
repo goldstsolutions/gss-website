@@ -160,10 +160,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Syne', sans-serif;
-      font-size: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: .2em;
+      letter-spacing: .08em;
       text-transform: uppercase;
       padding: 14px 28px;
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
@@ -172,13 +172,9 @@
       border-radius: 3px;
       cursor: pointer;
       text-decoration: none;
-      transition: transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s cubic-bezier(.22,1,.36,1);
-      box-shadow: 0 4px 24px rgba(212,185,106,.24), 0 1px 4px rgba(0,0,0,.3);
+      transition: transform .2s cubic-bezier(.22,1,.36,1);
     }
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(212,185,106,.36), 0 2px 8px rgba(0,0,0,.4);
-    }
+    .btn-gold:hover { transform: translateY(-2px); }
     .btn-gold:active  { transform: translateY(0); }
     .btn-gold:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
 
@@ -186,10 +182,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Syne', sans-serif;
-      font-size: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: .2em;
+      letter-spacing: .08em;
       text-transform: uppercase;
       padding: 13px 28px;
       background: transparent;
@@ -259,13 +255,13 @@
     @media (max-width: 768px) {
       .nav { padding: 0 24px; }
       .nav-links { display: none; }
+      .nav-book-btn { display: none; }
     }
 
     /* ════════════════════════════════════════════════
        HERO
        ════════════════════════════════════════════════ */
     .hero {
-      min-height: 100vh;
       background: var(--navy);
       position: relative;
       overflow: hidden;
@@ -273,7 +269,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 140px 64px 100px;
+      padding: 220px 64px 128px;
     }
 
     .hero-grid {
@@ -292,7 +288,7 @@
       top: -220px; right: -220px;
       width: 820px; height: 820px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,185,106,.08) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(212,185,106,.07) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-glow-2 {
@@ -313,12 +309,12 @@
     .hero-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: clamp(32px, 7vw, 88px);
+      font-size: clamp(30px, 6vw, 76px);
       text-transform: uppercase;
       letter-spacing: -.03em;
       line-height: .92;
       color: #fff;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .hero-title span { color: var(--gold); }
 
@@ -327,14 +323,14 @@
       color: var(--text-body);
       line-height: 1.75;
       max-width: 720px;
-      margin: 0 auto 44px;
+      margin: 0 auto 36px;
     }
     .hero-sub strong { color: var(--gold); font-weight: 600; }
 
     .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
     .hero-stats {
-      margin-top: 68px;
+      margin-top: 32px;
       display: flex;
       align-items: center;
       gap: 32px;
@@ -385,17 +381,18 @@
     .serve-wrap {
       display: grid;
       grid-template-columns: 1fr 1.55fr;
-      gap: 80px;
+      gap: 60px;
       align-items: start;
     }
 
-    .pain-cards { display: flex; flex-direction: column; gap: 12px; }
+    .pain-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 900px) { .pain-cards { grid-template-columns: 1fr; } }
 
     .pain-card {
       background: var(--navy-light);
       border: 1px solid var(--gold-border);
       border-radius: 6px;
-      padding: 22px 26px;
+      padding: 24px 28px;
       display: flex;
       align-items: flex-start;
       gap: 18px;
@@ -434,7 +431,7 @@
       display: block;
       margin-bottom: 5px;
     }
-    .pain-copy p { font-size: 13px; color: var(--text-body); line-height: 1.6; }
+    .pain-copy p { font-size: 14px; color: var(--text-body); line-height: 1.6; }
 
     .serve-copy p {
       font-size: 15px;
@@ -504,7 +501,6 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 17px;
       font-weight: 800;
-      text-transform: uppercase;
       letter-spacing: -.01em;
       color: #fff;
       margin-bottom: 7px;
@@ -524,7 +520,7 @@
     }
 
     .svc-body {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 16px;
@@ -537,7 +533,7 @@
       gap: 9px;
     }
     .svc-list li {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-body);
       line-height: 1.55;
       padding-left: 14px;
@@ -581,7 +577,7 @@
       letter-spacing: -.04em;
       line-height: 1;
       color: var(--gold);
-      opacity: .16;
+      opacity: .08;
       margin-bottom: 6px;
       display: block;
     }
@@ -598,15 +594,14 @@
 
     .pillar-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
-      text-transform: uppercase;
       letter-spacing: -.01em;
       color: #fff;
       margin-bottom: 14px;
     }
 
-    .pillar-body { font-size: 13px; color: var(--text-body); line-height: 1.7; }
+    .pillar-body { font-size: 14px; color: var(--text-body); line-height: 1.7; }
 
     @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr; max-width: 420px; } }
 
@@ -958,13 +953,9 @@
       border-radius: 4px;
       cursor: pointer;
       text-decoration: none;
-      transition: transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s cubic-bezier(.22,1,.36,1);
-      box-shadow: 0 6px 32px rgba(212,185,106,.35), 0 2px 8px rgba(0,0,0,.4);
+      transition: transform .2s cubic-bezier(.22,1,.36,1);
     }
-    .btn-hero-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 48px rgba(212,185,106,.45), 0 4px 12px rgba(0,0,0,.5);
-    }
+    .btn-hero-cta:hover { transform: translateY(-3px); }
     .btn-hero-cta:active  { transform: translateY(0); }
     .btn-hero-cta:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 4px; }
 
@@ -1093,7 +1084,7 @@
        ════════════════════════════════════════════════ */
     .cta-audit-steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
       margin-bottom: 36px;
       text-align: left;
@@ -1149,6 +1140,100 @@
       .cta-audit-steps { grid-template-columns: 1fr; }
       .hero-offer { max-width: 100%; }
     }
+
+    /* ── MID-PAGE CTA STRIP ───────────────────── */
+    .mid-cta-strip {
+      background: var(--void);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 40px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .mid-cta-q {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.5;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .mid-cta-strip { padding: 36px 24px; flex-direction: column; gap: 18px; text-align: center; }
+    }
+
+    /* ── SCROLL FADE-IN ───────────────────────── */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1);
+    }
+    .scroll-fade.visible { opacity: 1; transform: none; }
+    .scroll-fade:nth-child(2) { transition-delay: .1s; }
+    .scroll-fade:nth-child(3) { transition-delay: .2s; }
+
+    /* ── MOBILE NAV ───────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      transition: transform .2s, opacity .2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: rgba(11,18,32,.97);
+      border-bottom: 1px solid var(--gold-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 28px 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--text-body);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gold-border);
+      transition: color .18s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mobile-cta {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -1168,7 +1253,10 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold" style="font-size:9px;padding:11px 20px;">Book a Call</a>
+    <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold nav-book-btn" style="font-size:9px;padding:11px 20px;">Book a Call</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ══════════════════════════════════════════
@@ -1183,7 +1271,7 @@
       <div class="eyebrow a1">AI Automation Consulting</div>
 
       <h1 class="hero-title a2">
-        Do You Want To <span>Focus on Growth</span> — Not Admin?
+        Do You Want To<br><span>Focus on Growth</span><br>— Not Admin?
       </h1>
 
       <p class="hero-sub a3">
@@ -1238,23 +1326,15 @@
        WHO WE SERVE
        ══════════════════════════════════════════ -->
   <section class="section bg-void" id="about">
-    <div class="serve-wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who We Serve</div>
+      <div class="rule"></div>
+      <h2 class="section-title">Built for <span>Growing</span> SMBs</h2>
+      <p class="section-desc">We specialize in businesses of <strong>1–50 employees</strong> experiencing the following:</p>
+    </div>
 
-      <div>
-        <div class="section-head" style="margin-bottom:0">
-          <div class="eyebrow">Who We Serve</div>
-          <div class="rule"></div>
-          <h2 class="section-title">Built for<br><span>Growing</span><br>SMBs</h2>
-        </div>
-      </div>
-
-      <div>
-        <div class="serve-copy" style="margin-bottom:32px">
-          <p>We specialize in businesses of <strong>1–50 employees</strong> experiencing the following:</p>
-        </div>
-
-        <div class="pain-cards">
-          <div class="pain-card">
+    <div class="pain-cards">
+          <div class="pain-card scroll-fade">
             <div class="pain-ico">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
@@ -1264,7 +1344,7 @@
             </div>
           </div>
 
-          <div class="pain-card">
+          <div class="pain-card scroll-fade">
             <div class="pain-ico">
               <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-7"/></svg>
             </div>
@@ -1274,7 +1354,7 @@
             </div>
           </div>
 
-          <div class="pain-card">
+          <div class="pain-card scroll-fade">
             <div class="pain-ico">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
             </div>
@@ -1283,9 +1363,6 @@
               <p>You've experimented with tools like ChatGPT, but your day-to-day work hasn't changed.</p>
             </div>
           </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -1302,7 +1379,7 @@
 
     <div class="svc-grid">
 
-      <div class="svc-card">
+      <div class="svc-card scroll-fade">
         <h3 class="svc-name">Do It With You</h3>
         <p class="svc-tag">For non-technical teams who want to build AI skillsets</p>
         <p class="svc-body">We train your non-technical team. Prioritization, feasibility and build — so your team is empowered with infinite automation potential.</p>
@@ -1315,7 +1392,7 @@
         </ul>
       </div>
 
-      <div class="svc-card">
+      <div class="svc-card scroll-fade" style="background:rgba(212,185,106,0.05)">
         <h3 class="svc-name">Done For You</h3>
         <p class="svc-tag">For teams who want it built, tested, and running — fast</p>
         <p class="svc-body">We handle everything. Discovery, process redesign, build, testing, and handoff — so your team shows up to a working solution.</p>
@@ -1332,33 +1409,44 @@
   </section>
 
   <!-- ══════════════════════════════════════════
+       MID-PAGE CTA STRIP
+       ══════════════════════════════════════════ -->
+  <div class="mid-cta-strip">
+    <p class="mid-cta-q">Ready to see where AI fits in your business?</p>
+    <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-ghost">
+      Book a Free 30-Min Call
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+    </a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
        3 PILLARS
        ══════════════════════════════════════════ -->
   <section class="section bg-void" id="pillars">
     <div class="section-head">
       <div class="eyebrow">Our Approach</div>
       <div class="rule"></div>
-      <h2 class="section-title">3 Pillars of<br><span>Success</span> with AI</h2>
+      <h2 class="section-title">3 Pillars of <span>Success</span> with AI</h2>
       <p class="section-desc">Every project is built around three principles separating Gold St Solutions from the rest.</p>
     </div>
 
     <div class="pillars-grid">
 
-      <div class="pillar">
+      <div class="pillar scroll-fade">
         <span class="pillar-num">01</span>
         <div class="pillar-label">Pillar One</div>
         <div class="pillar-title">Focus</div>
         <p class="pillar-body">We begin by understanding your business, your process, and your real problem before we ever recommend a solution. No AI for AI's sake.</p>
       </div>
 
-      <div class="pillar">
+      <div class="pillar scroll-fade">
         <span class="pillar-num">02</span>
         <div class="pillar-label">Pillar Two</div>
         <div class="pillar-title">Proof</div>
         <p class="pillar-body">Every project starts with a proof-of-concept delivered in 1 week or less so you see real results — not promises.</p>
       </div>
 
-      <div class="pillar">
+      <div class="pillar scroll-fade">
         <span class="pillar-num">03</span>
         <div class="pillar-label">Pillar Three</div>
         <div class="pillar-title">Use</div>
@@ -1474,15 +1562,15 @@
         </div>
       </div>
 
-      <div class="cta-band-btns" style="margin-bottom:20px">
+      <div class="cta-band-btns" style="margin-bottom:12px">
         <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold">
           Book Your Free Call
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 6h8M6 2l4 4-4 4"/>
           </svg>
         </a>
-        <a href="tel:6179436865" class="btn-ghost">617-943-6865</a>
       </div>
+      <p style="font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin:0 0 20px">or call <a href="tel:6179436865" style="color:var(--gold-muted);text-decoration:none;">617-943-6865</a></p>
 
     </div>
   </section>
@@ -1499,6 +1587,40 @@
       Boston, MA 02116
     </div>
   </footer>
+
+  <!-- Mobile menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobileMenu()">Who We Serve</a>
+    <a href="#services" onclick="closeMobileMenu()">What We Do</a>
+    <a href="#pillars" onclick="closeMobileMenu()">Our Approach</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <div class="mobile-cta">
+      <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold" onclick="closeMobileMenu()">Book a Call</a>
+    </div>
+  </nav>
+
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', e => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
