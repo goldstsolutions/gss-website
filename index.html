@@ -860,15 +860,17 @@
 
     .testimonial-wrap {
       padding: 56px 64px;
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1512px;
+      margin: 0 auto;
     }
     .testimonial-card {
       background: var(--navy);
       border: 1px solid var(--gold-border);
       border-radius: 8px;
       padding: 40px 44px;
-      max-width: 680px;
       width: 100%;
       position: relative;
     }
@@ -932,7 +934,7 @@
 
     @media (max-width: 768px) {
       .trust-bar { padding: 28px 24px; gap: 28px; }
-      .testimonial-wrap { padding: 40px 24px; }
+      .testimonial-wrap { padding: 40px 24px; grid-template-columns: 1fr; }
       .testimonial-card { padding: 28px 24px; }
       .trust-sep { display: none; }
     }
@@ -1316,6 +1318,17 @@
           <div>
             <div class="testimonial-name">Bijan Taghavi</div>
             <div class="testimonial-role">Owner, Bijan Taghavi Education</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">As a result of working with Gold St Solutions, we've gained clearer visibility into the opportunities for improvement within our processes. In particular, it has highlighted how AI can be leveraged to streamline repetitive tasks, improve consistency, and reduce manual effort.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SV</div>
+          <div>
+            <div class="testimonial-name">Sonelle Van Voorst</div>
+            <div class="testimonial-role">Process Improvement Manager, Fireblade Aviation</div>
           </div>
         </div>
       </div>
