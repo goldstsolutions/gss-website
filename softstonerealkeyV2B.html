@@ -198,8 +198,8 @@
   .logo-item.logo-img { opacity: 1; display: inline-flex; align-items: center; }
   .logo-item.logo-img img { height: 26px; width: auto; display: block; filter: brightness(0); opacity: 0.45; transition: opacity 0.2s; }
   .logo-item.logo-img:hover img { opacity: 0.85; }
-  /* JPEG logos with white backgrounds — multiply blend makes white disappear into the pale section */
-  .logo-item.logo-img-jpg img { filter: grayscale(1) contrast(5); mix-blend-mode: multiply; }
+  /* JPEG logos with white backgrounds — opacity:1 required so mix-blend-mode isn't trapped in its own stacking context */
+  .logo-item.logo-img-jpg img { filter: grayscale(1) contrast(5) brightness(0.55); mix-blend-mode: multiply; opacity: 1; }
   /* Per-logo height overrides to normalise visual text size */
   .logo-img[data-logo="kw"] img       { height: 32px; }
   .logo-img[data-logo="compass"] img  { height: 13px; }
@@ -347,6 +347,9 @@
     .pcard { border-right: none; border-bottom: 1px solid var(--pale); }
     .logo-item { border-right: none; padding: 6px 14px; }
     .ctable th, .ctable td { padding: 12px 8px; font-size: 12px; }
+    .hero-form { flex-direction: column; padding: 16px; gap: 12px; max-width: 100%; }
+    .hero-form input { width: 100%; font-size: 15px; }
+    .hero-form button { width: 100%; padding: 15px; text-align: center; }
   }
 </style>
 </head>
