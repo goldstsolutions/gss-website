@@ -34,7 +34,7 @@
     background: #132133;
     border-bottom: 1px solid rgba(197,225,236,0.10);
   }
-  .nav-logo { font-family: "Libre Baskerville", serif; font-weight: 700; font-size: 22px; letter-spacing: 0.02em; color: var(--white); }
+  .nav-logo { font-family: "Libre Baskerville", serif; font-weight: 700; font-size: 24px; letter-spacing: 0.02em; color: var(--white); }
   .nav-logo span { color: #4EA3CC; }
   .nav-right { display: flex; align-items: center; gap: 36px; }
   .nav-link { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
@@ -51,7 +51,7 @@
     position: relative;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
-    padding: 160px 24px 120px;
+    padding: 100px 24px 140px;
     overflow: hidden;
   }
 
@@ -73,7 +73,7 @@
   .hero h1 em { font-style: italic; color: var(--pale); }
 
   .hero-sub {
-    font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.85); max-width: 520px; line-height: 1.8;
+    font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.85); max-width: 780px; line-height: 1.8;
     margin-bottom: 48px; letter-spacing: 0.01em;
     animation: fadeUp 0.7s 0.2s ease both;
   }
@@ -90,9 +90,10 @@
   .hero-form button:hover { background: var(--blue-dk); }
 
   .hero-trust {
-    display: flex; align-items: center; gap: 20px; margin-top: 28px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 28px;
     animation: fadeUp 0.7s 0.4s ease both;
   }
+  .trust-row { display: flex; align-items: center; gap: 20px; }
   .t-item { font-size: 15px; font-weight: 700; letter-spacing: 0.05em; color: #fff; display: flex; align-items: center; gap: 7px; }
   .t-check { color: #327BA5; font-size: 15px; font-weight: 700; line-height: 1; }
   .t-div { width: 1px; height: 12px; background: rgba(255,255,255,0.15); }
@@ -232,34 +233,28 @@
 
   /* HOW section dark-bg text overrides */
   .how .sec-title { color: var(--white); }
+  .how .sec-title em { color: var(--pale); }
   .how .sec-sub   { color: rgba(255,255,255,0.65); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ADDRESS AUTOCOMPLETE */
+  /* ADDRESS AUTOCOMPLETE — Google Places */
   .hero-form { position: relative; z-index: 10; }
-  .ac-dropdown {
-    text-align: left;
-    position: absolute; top: calc(100% + 6px); left: 0; right: 0;
-    background: var(--white); border-radius: 4px;
+  .pac-container {
+    font-family: "Montserrat", sans-serif;
+    border: none; border-radius: 4px;
     box-shadow: 0 16px 48px rgba(0,0,0,0.28);
-    overflow: hidden; z-index: 200;
-    max-height: 260px; overflow-y: auto;
+    margin-top: 6px; overflow: hidden;
   }
-  .ac-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 12px 16px; cursor: pointer;
-    border-bottom: 1px solid var(--pale);
-    transition: background 0.15s;
+  .pac-item {
+    padding: 10px 16px; font-size: 13px;
+    color: var(--navy); border-top: 1px solid #C5E1EC;
+    cursor: pointer; line-height: 1.5;
   }
-  .ac-item:last-child { border-bottom: none; }
-  .ac-item:hover, .ac-item.ac-active { background: var(--ice); }
-  .ac-icon { flex-shrink: 0; margin-top: 2px; color: var(--blue); }
-  .ac-text { display: flex; flex-direction: column; }
-  .ac-main { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.4; letter-spacing: 0.01em; }
-  .ac-sub  { font-size: 11px; font-weight: 400; color: var(--slate); letter-spacing: 0.02em; }
-  .ac-loading, .ac-empty {
-    padding: 14px 16px; font-size: 13px; color: var(--slate); text-align: center; letter-spacing: 0.01em;
-  }
+  .pac-item:first-child { border-top: none; }
+  .pac-item:hover, .pac-item-selected { background: #F3F9FB; }
+  .pac-item-query { font-weight: 600; color: #203755; font-size: 13px; }
+  .pac-matched { font-weight: 700; }
+  .pac-icon { display: none; }
 
   /* OFFER MODAL */
   .modal-overlay {
@@ -367,20 +362,46 @@
 
 <!-- HERO — photo background -->
 <section class="hero" id="offer">
-  <div class="eyebrow-hero">Full Market Value. Guaranteed.</div>
-  <h1>The Offer Your<br><em>Home Deserves.</em></h1>
-  <p class="hero-sub">Sell for cash at full market value. Close in as few as 10 days — no showings, no repairs, and your agent earns their full commission.</p>
+  <div class="eyebrow-hero">NO LOWBALL OFFERS. GUARANTEED.</div>
+  <h1>Get <em>Top Dollar</em><br>For Your Home<br><em>In 10 Days.</em></h1>
+  <p class="hero-sub">
+    Sell to RealKey and get cash now. We renovate and resell your home.<br>
+    You keep the profit. Your agent gets double commission.
+  </p>
   <div class="hero-form" id="hero-form">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#657486" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     <input id="address-input" type="text" placeholder="Enter your property address…" autocomplete="off" />
     <button id="get-offer-btn" type="button">Get Offer</button>
   </div>
   <div class="hero-trust">
-    <span class="t-item"><span class="t-check">✓</span>Close in 10 days</span>
-    <div class="t-div"></div>
-    <span class="t-item"><span class="t-check">✓</span>Full market value</span>
-    <div class="t-div"></div>
-    <span class="t-item"><span class="t-check">✓</span>No home showings</span>
+    <div class="trust-row">
+      <span class="t-item"><span class="t-check">✓</span>Close In 10 Days</span>
+      <div class="t-div"></div>
+      <span class="t-item"><span class="t-check">✓</span>All-Cash Offer</span>
+      <div class="t-div"></div>
+      <span class="t-item"><span class="t-check">✓</span>Double Commission</span>
+    </div>
+    <div class="trust-row">
+      <span class="t-item"><span class="t-check">✓</span>No Repairs</span>
+      <div class="t-div"></div>
+      <span class="t-item"><span class="t-check">✓</span>No Showings</span>
+      <div class="t-div"></div>
+      <span class="t-item"><span class="t-check">✓</span>No Waiting</span>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS — duplicate under hero -->
+<section class="logos">
+  <div class="logos-lbl">Serving agents and sellers at brokerages across the country</div>
+  <div class="logos-strip">
+    <span class="logo-item logo-img" data-logo="kw"><img src="64eecdadafb4f27913c2a1a9_KW.svg" alt="Keller Williams"></span>
+    <span class="logo-item logo-img" data-logo="compass"><img src="compass-logo-dark.webp" alt="Compass"></span>
+    <span class="logo-item logo-img" data-logo="redfin"><img src="redfin-logo.svg" alt="Redfin"></span>
+    <span class="logo-item logo-img" data-logo="bhg"><img src="Better_Homes_and_Gardens_Real_Estate_logo.svg" alt="Better Homes &amp; Gardens"></span>
+    <span class="logo-item logo-img" data-logo="c21"><img src="Century-21-real-estate-Logo.png" alt="Century 21"></span>
+    <span class="logo-item logo-img" data-logo="coldwell"><img src="coldwell-banker-logo-06-freelogovectors.net_.png" alt="Coldwell Banker"></span>
+    <span class="logo-item logo-img" data-logo="remax"><img src="ReMax-Logo-1973.png" alt="RE/MAX"></span>
   </div>
 </section>
 
@@ -388,12 +409,12 @@
 <section class="how" id="how-it-works">
   <div class="container">
     <div class="eyebrow">How It Works</div>
-    <h2 class="sec-title">A simpler path to full market value</h2>
-    <p class="sec-sub">Move on your schedule with cash in hand. We handle the sale — you collect the difference.</p>
+    <h2 class="sec-title">An all-cash offer <em>without</em> the lowball discount</h2>
+    <p class="sec-sub">Stop leaving money on the table –<br>3 simple steps to top-dollar:</p>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><h3>Enter Your Address</h3><p>Share your property details in under two minutes. No obligation to proceed.</p></div>
-      <div class="step"><div class="step-num">02</div><h3>Receive Your Offer</h3><p>A competitive cash offer within 24 hours — no open houses, no staging required.</p></div>
-      <div class="step"><div class="step-num">03</div><h3>Close with Upside</h3><p>Choose your closing date and moving timeline. Receive cash at closing and upside later.</p></div>
+      <div class="step"><div class="step-num">01</div><h3>You Get Cash Now</h3><p>Cash out in 10 days with no repairs, no showings.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>We Do The Work</h3><p>We renovate and resell your home for top-dollar.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>You Keep The Upside</h3><p>You keep the profit instead of giving it away.</p></div>
     </div>
   </div>
 </section>
@@ -401,15 +422,15 @@
 <!-- PRODUCTS — ice blue -->
 <section class="products">
   <div class="container">
-    <div class="eyebrow">Our Products</div>
+    <div class="eyebrow">Pick One</div>
     <h2 class="sec-title">Two ways to sell.<br>Both built around you.</h2>
-    <p class="sec-sub">Whether you want speed and certainty or speed and maximum return, we have a path for you.</p>
+    <p class="sec-sub">Get speed, certainty, and convenience on your terms.<br>Two paths. Your choice.</p>
     <div class="pgrid">
       <div class="pcard">
         <div class="ptag">Cash Offer</div>
         <h3>One All-Cash Purchase</h3>
         <div class="prule"></div>
-        <p>We buy your home outright. One clean transaction, no contingencies, and a guaranteed close on your schedule.</p>
+        <p>We buy your home outright. You pick the closing date. One simple, all-cash transaction. Guaranteed.</p>
         <ul class="plist">
           <li>Cash in hand at closing</li>
           <li>Single upfront transaction</li>
@@ -418,16 +439,16 @@
         <button class="pcta" id="cash-offer-btn" style="background: var(--blue); color: var(--white); border-color: var(--blue);">Get Cash Offer</button>
       </div>
       <div class="pcard feat">
-        <div class="ptag">Cash Plus</div>
+        <div class="ptag">Double Cash</div>
         <h3>All Cash. Paid Twice.</h3>
         <div class="prule"></div>
-        <p style="color: rgba(255,255,255,0.50);">Receive an upfront cash payment to move on your timeline, then get paid the upside once realkey relists and sells your home at full market value.</p>
+        <p style="color: rgba(255,255,255,0.50);">Receive cash upfront. Move on your timeline. We renovate and resell your home for top-dollar. You get paid again.</p>
         <ul class="plist">
           <li>Upfront cash so you can move immediately</li>
-          <li>Your home relisted and sold at market value</li>
-          <li>Get paid the upside once it sells</li>
+          <li>We renovate and relist your home for top-dollar</li>
+          <li>You get paid the upside profits</li>
         </ul>
-        <button class="pcta" id="cash-plus-btn">Get Cash Plus Offer</button>
+        <button class="pcta" id="cash-plus-btn">Get Double Cash Offer</button>
       </div>
     </div>
   </div>
@@ -438,18 +459,18 @@
   <div class="container">
     <div class="eyebrow light">The realkey Difference</div>
     <h2 class="sec-title light">A better outcome —<br>any way you measure it</h2>
-    <p class="sec-sub light">How realkey stacks up against typical investor offers and a traditional market sale.</p>
+    <p class="sec-sub light">SELL QUICKLY WITHOUT LEAVING MONEY ON THE TABLE.</p>
     <table class="ctable">
       <thead>
         <tr><th></th><th>Typical Investor</th><th class="hl">realkey</th><th>Traditional MLS</th></tr>
       </thead>
       <tbody>
-        <tr><td>Closing timeline</td><td>3&ndash;4 weeks</td><td class="hl">As few as 10 days</td><td>45&ndash;90 days</td></tr>
-        <tr><td>Full market value</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td>Sometimes</td></tr>
+        <tr><td>Closing timeline</td><td>4 weeks</td><td class="hl">Only 10 Days</td><td>90&ndash;180 days</td></tr>
+        <tr><td>TOP MARKET VALUE</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td>Maybe</td></tr>
         <tr><td>No home showings</td><td><span class="yes">&#10003;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td></tr>
         <tr><td>Sell as-is</td><td><span class="yes">&#10003;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td></tr>
-        <tr><td>Agent earns full commission</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
-        <tr><td>Seller keeps the upside</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td>Sometimes</td></tr>
+        <tr><td>AGENT EARNS DOUBLE COMMISSION</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
+        <tr><td>Seller keeps the upside</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td>Maybe</td></tr>
       </tbody>
     </table>
   </div>
@@ -462,19 +483,19 @@
       <div class="acopy">
         <div class="eyebrow">For Real Estate Agents</div>
         <h2>A win-win for<br>agents and sellers</h2>
-        <p>Bring a full-value cash offer to your clients and walk away with your complete commission, every time.</p>
+        <p>Bring a top-dollar cash offer to your clients and walk away with double commission.</p>
         <div class="pill-grid">
-          <span class="pill">Full Commission</span>
+          <span class="pill">Double Commission</span>
           <span class="pill">Offer in 24 Hours</span>
           <span class="pill">Close in 10 Days</span>
-          <span class="pill">No Showings Required</span>
+          <span class="pill">No Showings, No Repairs</span>
         </div>
       </div>
       <div class="sgrid">
-        <div class="scell"><div class="snum">10</div><div class="slabel">Day close, fastest in the market</div></div>
-        <div class="scell"><div class="snum">100<sup>%</sup></div><div class="slabel">Commission paid to agents, always</div></div>
-        <div class="scell"><div class="snum">24</div><div class="slabel">Hour offer turnaround from submission</div></div>
-        <div class="scell"><div class="snum">$0</div><div class="slabel">Repairs or staging required to sell</div></div>
+        <div class="scell"><div class="snum">10</div><div class="slabel">Day Close, Lightning Speed</div></div>
+        <div class="scell"><div class="snum">200<sup>%</sup></div><div class="slabel">Double Commission Paid To Agents</div></div>
+        <div class="scell"><div class="snum">24</div><div class="slabel">Hour Offer Turnaround</div></div>
+        <div class="scell"><div class="snum">0</div><div class="slabel">Zero Repairs, Zero Showings, Zero Staging</div></div>
       </div>
     </div>
   </div>
@@ -498,14 +519,14 @@
 <section class="closing">
   <div class="closing-eye">No Obligation. No Pressure.</div>
   <h2>Ready to get the offer <em>you</em> deserve?</h2>
-  <p>Get a competitive cash offer within 24 hours, no commitment required.</p>
+  <p>Get a top-dollar cash offer within 24 hours, no commitment required.</p>
   <button class="closing-btn" id="closing-offer-btn">Get My Offer</button>
 </section>
 
 <footer>
   <div class="f-logo">real<span>key</span></div>
   <div class="f-tag">The Offer Your Home Deserves.</div>
-  <div class="f-copy">&copy; 2026 realkey. All Rights Reserved. &nbsp;&middot;&nbsp; realkeyoffers.com</div>
+  <div class="f-copy">Copyright &copy; 2026 RealKey Offers. All Rights Reserved.</div>
 </footer>
 
 <!-- OFFER MODAL -->
@@ -549,105 +570,6 @@
 
 <script>
 (function () {
-
-  // --- SHARED UTILITIES ---
-
-  function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-
-  async function fetchSuggestions(query) {
-    const url = 'https://nominatim.openstreetmap.org/search?' +
-      new URLSearchParams({ q: query, format: 'json', addressdetails: 1, countrycodes: 'us', limit: 6 });
-    const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
-    return res.json();
-  }
-
-  // --- REUSABLE AUTOCOMPLETE ---
-  // inputEl   — the <input> to attach to
-  // containerEl — positioned ancestor that receives the dropdown
-  // onSelect  — callback(result) when user picks an address
-
-  function initAutocomplete(inputEl, containerEl, onSelect) {
-    let dropdown = null;
-    let debounceTimer = null;
-    let activeIndex = -1;
-    let lastResults = [];
-
-    function close() {
-      if (dropdown) { dropdown.remove(); dropdown = null; }
-      activeIndex = -1;
-    }
-
-    function appendDropdown(html) {
-      close();
-      dropdown = document.createElement('div');
-      dropdown.className = 'ac-dropdown';
-      dropdown.innerHTML = html;
-      containerEl.appendChild(dropdown);
-    }
-
-    function render(results) {
-      close();
-      if (!results.length) return;
-      lastResults = results;
-      dropdown = document.createElement('div');
-      dropdown.className = 'ac-dropdown';
-      results.forEach(function (r) {
-        const parts = r.display_name.split(', ');
-        const main  = parts.slice(0, 2).join(', ');
-        const sub   = parts.slice(2).join(', ');
-        const item  = document.createElement('div');
-        item.className = 'ac-item';
-        item.innerHTML =
-          '<svg class="ac-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
-          '<span class="ac-text"><span class="ac-main">' + escHtml(main) + '</span><span class="ac-sub">' + escHtml(sub) + '</span></span>';
-        item.addEventListener('mousedown', function (e) { e.preventDefault(); pick(r); });
-        dropdown.appendChild(item);
-      });
-      containerEl.appendChild(dropdown);
-    }
-
-    function pick(r) {
-      inputEl.value = r.display_name;
-      close();
-      inputEl.blur();
-      onSelect(r);
-    }
-
-    inputEl.addEventListener('input', function () {
-      const val = inputEl.value.trim();
-      clearTimeout(debounceTimer);
-      if (val.length < 3) { close(); return; }
-      appendDropdown('<div class="ac-loading">Searching addresses…</div>');
-      debounceTimer = setTimeout(async function () {
-        try {
-          const results = await fetchSuggestions(val);
-          if (results.length) render(results);
-          else appendDropdown('<div class="ac-empty">No addresses found — try adding city or state.</div>');
-        } catch (e) { close(); }
-      }, 320);
-    });
-
-    inputEl.addEventListener('keydown', function (e) {
-      if (!dropdown) return;
-      const items = dropdown.querySelectorAll('.ac-item');
-      if (e.key === 'ArrowDown') {
-        e.preventDefault(); activeIndex = Math.min(activeIndex + 1, items.length - 1);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault(); activeIndex = Math.max(activeIndex - 1, -1);
-      } else if (e.key === 'Enter' && activeIndex >= 0) {
-        e.preventDefault(); pick(lastResults[activeIndex]); return;
-      } else if (e.key === 'Escape') { close(); return; }
-      items.forEach(function (el, i) { el.classList.toggle('ac-active', i === activeIndex); });
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!containerEl.contains(e.target)) close();
-    });
-
-    return { close: close };
-  }
 
   // --- MODAL ---
   const modal       = document.getElementById('offer-modal');
@@ -695,7 +617,7 @@
     }
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
-    fetch('https://script.google.com/macros/s/AKfycbwojkXnGeyBm7wMGpugauLfKDBilZAEDdkte07TCz9_bP9t8TgofPkqcx1Havmmi58R/exec', {
+    fetch('https://script.google.com/macros/s/AKfycby1zZs38NwsGrMOZRXWxr9kkWyhJgfgzQoyogHfj4rpBRwuHZkHEdvGA62sZ--KVqpT/exec', {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain' },
@@ -714,43 +636,39 @@
     el.addEventListener('input', function () { el.style.borderColor = ''; });
   });
 
-  // --- HERO AUTOCOMPLETE ---
-  const heroInput = document.getElementById('address-input');
-  const heroForm  = document.getElementById('hero-form');
-
-  initAutocomplete(heroInput, heroForm, function (r) {
-    window._selectedAddress = r.display_name;
-    openModal(r.display_name);
-  });
-
+  // --- BUTTON LISTENERS ---
   document.getElementById('get-offer-btn').addEventListener('click', function () {
-    openModal(heroInput.value.trim());
+    openModal(document.getElementById('address-input').value.trim());
   });
 
-  document.getElementById('closing-offer-btn').addEventListener('click', function () {
-    openModal('');
-  });
+  document.getElementById('closing-offer-btn').addEventListener('click', function () { openModal(''); });
+  document.getElementById('nav-offer-btn').addEventListener('click', function (e) { e.preventDefault(); openModal(''); });
+  document.getElementById('cash-offer-btn').addEventListener('click', function () { openModal(''); });
+  document.getElementById('cash-plus-btn').addEventListener('click', function () { openModal(''); });
 
-  document.getElementById('nav-offer-btn').addEventListener('click', function (e) {
-    e.preventDefault();
-    openModal('');
-  });
+  // --- GOOGLE PLACES AUTOCOMPLETE ---
+  // Exposed on window so the Maps JS API loader can call it as a callback
+  window.initGooglePlaces = function () {
+    const opts = {
+      componentRestrictions: { country: 'us' },
+      types: ['address'],
+      fields: ['formatted_address']
+    };
 
-  document.getElementById('cash-offer-btn').addEventListener('click', function () {
-    openModal('');
-  });
+    const heroAC = new google.maps.places.Autocomplete(
+      document.getElementById('address-input'), opts
+    );
+    heroAC.addListener('place_changed', function () {
+      const place = heroAC.getPlace();
+      if (place && place.formatted_address) openModal(place.formatted_address);
+    });
 
-  document.getElementById('cash-plus-btn').addEventListener('click', function () {
-    openModal('');
-  });
-
-  // --- MODAL ADDRESS AUTOCOMPLETE ---
-  initAutocomplete(mAddress, document.getElementById('m-address-group'), function (r) {
-    mAddress.style.borderColor = '';
-  });
+    new google.maps.places.Autocomplete(document.getElementById('m-address'), opts);
+  };
 
 })();
 </script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsQFTTx-Q2ciXx8ShK7285MDhDz4IGDl0&libraries=places&callback=initGooglePlaces" async defer></script>
 </body>
 </html>
