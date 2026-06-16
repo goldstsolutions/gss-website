@@ -51,7 +51,7 @@
     position: relative;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center;
-    padding: 100px 24px 140px;
+    padding: 60px 24px 180px;
     overflow: hidden;
   }
 
@@ -90,13 +90,11 @@
   .hero-form button:hover { background: var(--blue-dk); }
 
   .hero-trust {
-    display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 28px;
+    display: grid; grid-template-columns: repeat(3, auto); gap: 10px 36px; justify-content: center; margin-top: 28px;
     animation: fadeUp 0.7s 0.4s ease both;
   }
-  .trust-row { display: flex; align-items: center; gap: 20px; }
   .t-item { font-size: 15px; font-weight: 700; letter-spacing: 0.05em; color: #fff; display: flex; align-items: center; gap: 7px; }
   .t-check { color: #327BA5; font-size: 15px; font-weight: 700; line-height: 1; }
-  .t-div { width: 1px; height: 12px; background: rgba(255,255,255,0.15); }
 
   /* SHARED */
   section { padding: 100px 24px; }
@@ -348,6 +346,15 @@
     .hero-form button { flex: 0 0 100%; padding: 15px; text-align: center; }
   }
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8J5L1DEEM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q8J5L1DEEM');
+</script>
 </head>
 <body>
 
@@ -363,9 +370,9 @@
 <!-- HERO — photo background -->
 <section class="hero" id="offer">
   <div class="eyebrow-hero">NO LOWBALL OFFERS. GUARANTEED.</div>
-  <h1>Get <em>Top Dollar</em><br>For Your Home<br><em>In 10 Days.</em></h1>
+  <h1>Get <em>Top-Dollar</em><br>For Your Home<br><em>In 10 Days</em><span style="color:#fff;">.</span></h1>
   <p class="hero-sub">
-    Sell to RealKey and get cash now. We renovate and resell your home.<br>
+    Sell to RealKey and get cash now. We renovate and relist your home.<br>
     You keep the profit. Your agent gets double commission.
   </p>
   <div class="hero-form" id="hero-form">
@@ -374,20 +381,12 @@
     <button id="get-offer-btn" type="button">Get Offer</button>
   </div>
   <div class="hero-trust">
-    <div class="trust-row">
-      <span class="t-item"><span class="t-check">✓</span>Close In 10 Days</span>
-      <div class="t-div"></div>
-      <span class="t-item"><span class="t-check">✓</span>All-Cash Offer</span>
-      <div class="t-div"></div>
-      <span class="t-item"><span class="t-check">✓</span>Double Commission</span>
-    </div>
-    <div class="trust-row">
-      <span class="t-item"><span class="t-check">✓</span>No Repairs</span>
-      <div class="t-div"></div>
-      <span class="t-item"><span class="t-check">✓</span>No Showings</span>
-      <div class="t-div"></div>
-      <span class="t-item"><span class="t-check">✓</span>No Waiting</span>
-    </div>
+    <span class="t-item"><span class="t-check">✓</span>Close In 10 Days</span>
+    <span class="t-item"><span class="t-check">✓</span>All-Cash Offer</span>
+    <span class="t-item"><span class="t-check">✓</span>Double Commission</span>
+    <span class="t-item"><span class="t-check">✓</span>No Repairs</span>
+    <span class="t-item"><span class="t-check">✓</span>No Showings</span>
+    <span class="t-item"><span class="t-check">✓</span>No Waiting</span>
   </div>
 </section>
 
@@ -413,7 +412,7 @@
     <p class="sec-sub">Stop leaving money on the table –<br>3 simple steps to top-dollar:</p>
     <div class="steps">
       <div class="step"><div class="step-num">01</div><h3>You Get Cash Now</h3><p>Cash out in 10 days with no repairs, no showings.</p></div>
-      <div class="step"><div class="step-num">02</div><h3>We Do The Work</h3><p>We renovate and resell your home for top-dollar.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>We Do The Work</h3><p>We renovate and relist your home for top-dollar.</p></div>
       <div class="step"><div class="step-num">03</div><h3>You Keep The Upside</h3><p>You keep the profit instead of giving it away.</p></div>
     </div>
   </div>
@@ -442,11 +441,11 @@
         <div class="ptag">Double Cash</div>
         <h3>All Cash. Paid Twice.</h3>
         <div class="prule"></div>
-        <p style="color: rgba(255,255,255,0.50);">Receive cash upfront. Move on your timeline. We renovate and resell your home for top-dollar. You get paid again.</p>
+        <p style="color: rgba(255,255,255,0.50);">Receive cash upfront. Move on your timeline. We renovate and relist your home for top-dollar. You get paid again.</p>
         <ul class="plist">
           <li>Upfront cash so you can move immediately</li>
           <li>We renovate and relist your home for top-dollar</li>
-          <li>You get paid the upside profits</li>
+          <li>You keep the profits</li>
         </ul>
         <button class="pcta" id="cash-plus-btn">Get Double Cash Offer</button>
       </div>
@@ -469,7 +468,7 @@
         <tr><td>TOP MARKET VALUE</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td>Maybe</td></tr>
         <tr><td>No home showings</td><td><span class="yes">&#10003;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td></tr>
         <tr><td>Sell as-is</td><td><span class="yes">&#10003;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td></tr>
-        <tr><td>AGENT EARNS DOUBLE COMMISSION</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
+        <tr><td>AGENT EARNS DOUBLE COMMISSION</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td><span class="no">&mdash;</span></td></tr>
         <tr><td>Seller keeps the upside</td><td><span class="no">&mdash;</span></td><td class="hl"><span class="yes">&#10003;</span></td><td>Maybe</td></tr>
       </tbody>
     </table>
@@ -492,9 +491,9 @@
         </div>
       </div>
       <div class="sgrid">
-        <div class="scell"><div class="snum">10</div><div class="slabel">Day Close, Lightning Speed</div></div>
-        <div class="scell"><div class="snum">200<sup>%</sup></div><div class="slabel">Double Commission Paid To Agents</div></div>
-        <div class="scell"><div class="snum">24</div><div class="slabel">Hour Offer Turnaround</div></div>
+        <div class="scell"><div class="snum">10</div><div class="slabel">Day Close,<br>Lightning Speed</div></div>
+        <div class="scell"><div class="snum">200<sup>%</sup></div><div class="slabel">Double Commission<br>Paid To Agents</div></div>
+        <div class="scell"><div class="snum">24</div><div class="slabel">Hour Offer<br>Turnaround</div></div>
         <div class="scell"><div class="snum">0</div><div class="slabel">Zero Repairs, Zero Showings, Zero Staging</div></div>
       </div>
     </div>
