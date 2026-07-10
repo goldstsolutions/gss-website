@@ -335,10 +335,81 @@
   <!--
   Leads land in the SAME Google Form / Sheet as the case-study gate.
   This form submits Name + Email only — the Phone entry is omitted, so
-  rows from this funnel have an empty Phone column (use that to trigger
-  the 3-day drip from the sheet).
+  rows from this funnel have an empty Phone column.
   NOTE: the Phone question in the Google Form must be set to NOT required,
   otherwise submissions without it are silently rejected.
+
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║       AUTO-DELIVERY EMAIL — FREE COURSE OPT-IN                  ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║                                                                  ║
+  ║  The empty Phone column is used to detect a free-course lead     ║
+  ║  (vs. a case-study lead, which always has a Phone value).        ║
+  ║                                                                  ║
+  ║  Update the SAME Apps Script trigger already documented in       ║
+  ║  case-study-gate.html (Extensions → Apps Script on the linked    ║
+  ║  Sheet, function onCaseStudySubmit, trigger: On form submit).    ║
+  ║  Replace it with the version below — it keeps the existing       ║
+  ║  internal-notification email and adds an auto-reply to the       ║
+  ║  lead with the Loom video + worksheet when Phone is blank.       ║
+  ║                                                                  ║
+  ║  function onCaseStudySubmit(e) {                                  ║
+  ║    const row   = e.values;                                       ║
+  ║    // row[0]=Timestamp, row[1]=Name, row[2]=Email, row[3]=Phone   ║
+  ║    const name  = row[1];                                         ║
+  ║    const email = row[2];                                         ║
+  ║    const phone = row[3];                                         ║
+  ║    const isFreeCourse = !phone;                                  ║
+  ║                                                                  ║
+  ║    if (isFreeCourse) sendFreeCourseEmail(name, email);           ║
+  ║                                                                  ║
+  ║    const subject = (isFreeCourse                                 ║
+  ║      ? '📚 Free Course Opt-in: ' : '📥 Case Study Download: ')   ║
+  ║      + name;                                                     ║
+  ║    const body = `                                                ║
+  ║  New ${isFreeCourse ? 'free course opt-in' : 'case study download'} ║
+  ║                                                                  ║
+  ║  Name:   ${name}                                                  ║
+  ║  Email:  ${email}                                                 ║
+  ║  Phone:  ${phone || '(none — free course lead)'}                 ║
+  ║    `;                                                            ║
+  ║    GmailApp.sendEmail(                                           ║
+  ║      'isabelle@goldstsolutions.com',                             ║
+  ║      subject, body                                               ║
+  ║    );                                                            ║
+  ║  }                                                               ║
+  ║                                                                  ║
+  ║  function sendFreeCourseEmail(name, email) {                     ║
+  ║    const loomUrl =                                                ║
+  ║      'https://www.loom.com/share/0ee77cf9add04d8eb5b8515ea35f81b8'; ║
+  ║    const worksheetUrl =                                          ║
+  ║      'https://docs.google.com/document/d/' +                    ║
+  ║      '1_qQ5NvwigcAnOQ6DEuvL1HqUquqZTxf_fSDJ-r3rmw4/edit';        ║
+  ║    const firstName = (name || '').split(' ')[0] || 'there';      ║
+  ║                                                                  ║
+  ║    const subject = 'Your Free Course: Find Your AI Goldmine in 20 Min'; ║
+  ║    const body =                                                  ║
+  ║  `Hi ${firstName},                                                ║
+  ║                                                                  ║
+  ║  Thanks for signing up! Here's everything you need:               ║
+  ║                                                                  ║
+  ║  Watch the course video:                                         ║
+  ║  ${loomUrl}                                                      ║
+  ║                                                                  ║
+  ║  Download the worksheet to follow along:                         ║
+  ║  ${worksheetUrl}                                                 ║
+  ║                                                                  ║
+  ║  Talk soon,                                                      ║
+  ║  Gold St Solutions`;                                             ║
+  ║                                                                  ║
+  ║    GmailApp.sendEmail(email, subject, body);                     ║
+  ║  }                                                               ║
+  ║                                                                  ║
+  ║  Save → re-run/re-authorize the existing trigger (no new         ║
+  ║  trigger needed, it's the same onCaseStudySubmit function).      ║
+  ║  Test by submitting this form with a blank Phone.                ║
+  ║                                                                  ║
+  ╚══════════════════════════════════════════════════════════════════╝
   -->
   <script>
     const GOOGLE_FORM_ID   = '1FAIpQLScsfySZVxtnokQyjUD0cDuE2uy6TqGALyRFDusR_P84Ay1NnQ';

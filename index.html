@@ -445,111 +445,6 @@
     @media (max-width: 900px) { .serve-wrap { grid-template-columns: 1fr; gap: 48px; } }
 
     /* ════════════════════════════════════════════════
-       SERVICES
-       ════════════════════════════════════════════════ */
-    .svc-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .svc-card {
-      background: var(--navy-light);
-      border: 1px solid var(--gold-border);
-      border-radius: 8px;
-      padding: 34px 30px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .25s, transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s;
-    }
-    .svc-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-bright) 55%, transparent);
-    }
-    .svc-card:hover {
-      border-color: var(--gold-border-mid);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(0,0,0,.45);
-    }
-
-    .svc-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--gold-muted);
-      margin-bottom: 18px;
-    }
-
-    .svc-icon {
-      width: 42px; height: 42px;
-      border-radius: 8px;
-      background: var(--gold-dim);
-      border: 1px solid var(--gold-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-    .svc-icon svg { width: 19px; height: 19px; fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-
-    .svc-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -.01em;
-      color: #fff;
-      margin-bottom: 7px;
-    }
-
-    .svc-tag {
-      font-size: 12px;
-      color: var(--gold);
-      margin-bottom: 22px;
-      line-height: 1.5;
-    }
-
-    .svc-divider {
-      width: 30px; height: 1px;
-      background: var(--gold-border-mid);
-      margin-bottom: 18px;
-    }
-
-    .svc-body {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .svc-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-    .svc-list li {
-      font-size: 14px;
-      color: var(--text-body);
-      line-height: 1.55;
-      padding-left: 14px;
-      position: relative;
-    }
-    .svc-list li::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 9px;
-      width: 5px; height: 1px;
-      background: var(--gold-muted);
-    }
-
-    @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; max-width: 480px; } }
-
-    /* ════════════════════════════════════════════════
        PILLARS
        ════════════════════════════════════════════════ */
     .pillars-grid {
@@ -1100,49 +995,8 @@
     .offer-scarcity svg { flex-shrink: 0; stroke: var(--gold-muted); }
 
     /* ════════════════════════════════════════════════
-       CTA BAND — AUDIT STEPS
+       CTA BAND
        ════════════════════════════════════════════════ */
-    .cta-audit-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-bottom: 36px;
-      text-align: left;
-    }
-    .cta-audit-step {
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--gold-border);
-      border-radius: 6px;
-      padding: 18px 16px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .cta-step-num {
-      width: 26px; height: 26px;
-      border-radius: 50%;
-      background: var(--gold-dim);
-      border: 1px solid var(--gold-border-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-    .cta-audit-step div { display: flex; flex-direction: column; gap: 4px; }
-    .cta-audit-step strong {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: .01em;
-    }
-    .cta-audit-step span { font-size: 12px; color: var(--text-body); line-height: 1.5; }
-
     .cta-scarcity-note {
       font-size: 12px;
       color: var(--gold-muted);
@@ -1157,7 +1011,6 @@
     }
 
     @media (max-width: 768px) {
-      .cta-audit-steps { grid-template-columns: 1fr; }
       .hero-offer { max-width: 100%; }
     }
 
@@ -1269,7 +1122,6 @@
     <a href="#" class="nav-logo">Gold St <span>Solutions</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#pillars">Our Approach</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1295,7 +1147,7 @@
       </h1>
 
       <p class="hero-sub a3">
-        We help SMBs unlock exponential growth by replacing manual processes with AI - in weeks, not years. Download the case study to see 10 real examples & results.
+        We help services firms grow revenue without growing headcount, through done-for-you AI Agents in 90 days. Take the free course to learn the exact 4-Step Framework we use to help firms eliminate 600+ hours a year and grow revenue.
       </p>
 
       <div class="hero-ctas a4">
@@ -1408,7 +1260,7 @@
     <div class="section-head">
       <div class="eyebrow">Who We Serve</div>
       <div class="rule"></div>
-      <h2 class="section-title">Built for <span>Growing</span> SMBs</h2>
+      <h2 class="section-title">Built for <span>Growing</span> Services Firms</h2>
       <p class="section-desc">We specialize in businesses of <strong>5–50 employees</strong> experiencing the following:</p>
     </div>
 
@@ -1453,35 +1305,38 @@
       <div class="eyebrow">What We Do</div>
       <div class="rule"></div>
       <h2 class="section-title">Eliminate Admin. <span>Unlock Growth.</span></h2>
-      <p class="section-desc">We help SMBs eliminate the manual work holding them back from exponential growth.</p>
+      <p class="section-desc">We help services firms eliminate the manual work holding them back from servicing more customers, and growing faster.</p>
     </div>
 
-    <div class="svc-grid">
+    <div class="pillars-grid">
 
-      <div class="svc-card scroll-fade">
-        <h3 class="svc-name">Do It With You</h3>
-        <p class="svc-tag">For non-technical teams who want to build AI skillsets</p>
-        <p class="svc-body">We train your non-technical team. Prioritization, feasibility and build — so your team is empowered with infinite automation potential.</p>
-        <div class="svc-divider"></div>
-        <ul class="svc-list">
-          <li>Focused overview on AI tools for your industry and team</li>
-          <li>3-step framework to evaluate any task for automation potential</li>
-          <li>Hands-on sessions building use cases tailored for your team</li>
-          <li>Every team member leaves with live automations in their account</li>
-        </ul>
+      <div class="pillar scroll-fade">
+        <span class="pillar-num">01</span>
+        <div class="pillar-label">Step One</div>
+        <div class="pillar-title">Find Your Highest-ROI Use Cases</div>
+        <p class="pillar-body">Take the free course and find your AI goldmine. In 20 minutes, see exactly where AI can save your firm the most time and money.</p>
+        <a href="free-course-optin.html" class="btn-ghost" style="margin-top:22px;">
+          Take the Free Course
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+        </a>
       </div>
 
-      <div class="svc-card scroll-fade" style="background:rgba(212,185,106,0.05)">
-        <h3 class="svc-name">Done For You</h3>
-        <p class="svc-tag">For teams who want it built, tested, and running — fast</p>
-        <p class="svc-body">We handle everything. Discovery, process redesign, build, testing, and handoff — so your team shows up to a working solution.</p>
-        <div class="svc-divider"></div>
-        <ul class="svc-list">
-          <li>Deep-dive discovery into your processes and systems</li>
-          <li>Custom AI workflows connected to the systems you already use</li>
-          <li>Training so your team actually adopts it</li>
-          <li>Ongoing monitoring and improvements as you grow</li>
-        </ul>
+      <div class="pillar scroll-fade">
+        <span class="pillar-num">02</span>
+        <div class="pillar-label">Step Two</div>
+        <div class="pillar-title">We'll Tell You What's Feasible</div>
+        <p class="pillar-body">Book an AI Audit. We'll tell you what's worth automating and what isn't — no frustrating trial and error.</p>
+        <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:22px;">
+          Book an AI Audit
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <div class="pillar scroll-fade">
+        <span class="pillar-num">03</span>
+        <div class="pillar-label">Step Three</div>
+        <div class="pillar-title">We Build It For You</div>
+        <p class="pillar-body">If it makes sense, we build it — following the same 4-step framework that's delivered 600+ hrs/yr back to other services businesses. You can focus on growing the business, not becoming an AI expert.</p>
       </div>
 
     </div>
@@ -1497,43 +1352,6 @@
       <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
     </a>
   </div>
-
-  <!-- ══════════════════════════════════════════
-       3 PILLARS
-       ══════════════════════════════════════════ -->
-  <section class="section bg-void" id="pillars">
-    <div class="section-head">
-      <div class="eyebrow">Our Approach</div>
-      <div class="rule"></div>
-      <h2 class="section-title">3 Pillars of <span>Success</span> with AI</h2>
-      <p class="section-desc">Every project is built around three principles separating Gold St Solutions from the rest.</p>
-    </div>
-
-    <div class="pillars-grid">
-
-      <div class="pillar scroll-fade">
-        <span class="pillar-num">01</span>
-        <div class="pillar-label">Pillar One</div>
-        <div class="pillar-title">Focus</div>
-        <p class="pillar-body">We begin by understanding your business, your process, and your real problem before we ever recommend a solution. No AI for AI's sake.</p>
-      </div>
-
-      <div class="pillar scroll-fade">
-        <span class="pillar-num">02</span>
-        <div class="pillar-label">Pillar Two</div>
-        <div class="pillar-title">Proof</div>
-        <p class="pillar-body">Every project starts with a proof-of-concept delivered in 1 week or less so you see real results — not promises.</p>
-      </div>
-
-      <div class="pillar scroll-fade">
-        <span class="pillar-num">03</span>
-        <div class="pillar-label">Pillar Three</div>
-        <div class="pillar-title">Use</div>
-        <p class="pillar-body">AI and automation is only helpful if your team can use it. Everything we create is built with your team in mind.</p>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ══════════════════════════════════════════
        FOUNDER
@@ -1608,48 +1426,24 @@
     <div class="cta-band-glow"></div>
     <div class="cta-band-inner" style="max-width:780px">
       <div class="eyebrow" style="justify-content:center">Free Offer</div>
-      <div class="cta-offer-badges" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
-        <span class="offer-badge-value">$1,000 Value</span>
-        <span class="offer-badge-free">FREE</span>
-      </div>
       <h2 class="cta-band-title">Your <span>AI Roadmap</span></h2>
       <p class="cta-band-sub">
         Free 30-minute call where we map your top AI automation opportunities and estimate the business impact. You walk away with a clear roadmap of quick wins to eliminate admin in weeks.
       </p>
 
-      <div class="cta-audit-steps">
-        <div class="cta-audit-step">
-          <span class="cta-step-num">1</span>
-          <div>
-            <strong>We research your business</strong>
-            <span>We take time to understand your processes &amp; constraints</span>
-          </div>
-        </div>
-        <div class="cta-audit-step">
-          <span class="cta-step-num">2</span>
-          <div>
-            <strong>We map your AI opportunities</strong>
-            <span>Your top use cases with business impact for each</span>
-          </div>
-        </div>
-        <div class="cta-audit-step">
-          <span class="cta-step-num">3</span>
-          <div>
-            <strong>You get a clear roadmap in 48hrs</strong>
-            <span>Quick wins that eliminate admin in weeks</span>
-          </div>
-        </div>
+      <div class="cta-offer-badges" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:28px;">
+        <span class="offer-badge-value" style="font-size:14px;padding:8px 16px;">$1,000 Value</span>
+        <span class="offer-badge-free" style="font-size:14px;padding:8px 18px;">FREE</span>
       </div>
 
-      <div class="cta-band-btns" style="margin-bottom:12px">
-        <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold">
+      <div class="cta-band-btns" style="margin-bottom:20px">
+        <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold" style="font-size:13px;padding:18px 36px;">
           Book Your Free Call
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 6h8M6 2l4 4-4 4"/>
           </svg>
         </a>
       </div>
-      <p style="font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin:0 0 20px">or call <a href="tel:6179436865" style="color:var(--gold-muted);text-decoration:none;">617-943-6865</a></p>
 
     </div>
   </section>
@@ -1671,7 +1465,6 @@
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#about" onclick="closeMobileMenu()">Who We Serve</a>
     <a href="#services" onclick="closeMobileMenu()">What We Do</a>
-    <a href="#pillars" onclick="closeMobileMenu()">Our Approach</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     <div class="mobile-cta">
       <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold" onclick="closeMobileMenu()">Book a Call</a>
