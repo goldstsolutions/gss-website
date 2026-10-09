@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVTZE7RQV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YVTZE7RQV8');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NQJVZCHT');</script>
+  <!-- End Google Tag Manager -->
+  <script>
+    // Old .html links: show the clean URL instead
+    if (location.pathname.endsWith('.html')) history.replaceState(null, '', location.pathname.slice(0, -5) + location.search + location.hash);
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Free Course: Find Your AI Goldmine in 20 Min — Gold St Solutions</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307090D'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='18' fill='%23D4B96A'>G</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Syne:wght@700&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --gold:            #D4B96A;
@@ -22,7 +42,7 @@
       --navy-light:#162338;
       --text-primary: rgba(255,255,255,0.92);
       --text-body:    rgba(255,255,255,0.62);
-      --text-muted:   rgba(255,255,255,0.28);
+      --text-muted:   rgba(255,255,255,0.50);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -102,9 +122,9 @@
     /* Eyebrow */
     .eyebrow {
       font-family: 'Syne', sans-serif;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.45em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--gold-muted);
       display: flex;
@@ -161,9 +181,9 @@
     }
     .infobox-label {
       font-family: 'Syne', sans-serif;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gold);
     }
@@ -198,11 +218,11 @@
     }
     label {
       font-family: 'Syne', sans-serif;
-      font-size: 9px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.38em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-body);
       display: block;
       margin-bottom: 6px;
     }
@@ -213,7 +233,7 @@
       border-radius: 3px;
       padding: 13px 16px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--text-primary);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
@@ -231,7 +251,7 @@
       justify-content: center;
       gap: 10px;
       width: 100%;
-      padding: 14px 28px;
+      padding: 16px 28px;
       background: var(--gold);
       color: var(--void);
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -246,6 +266,18 @@
     }
     .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-submit:active { transform: translateY(0); opacity: 1; }
+    .btn-submit:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+    .btn-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+    .form-error {
+      display: none;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #E8A598;
+      margin-top: 14px;
+    }
+    .form-error.show { display: block; }
+    .form-error a { color: var(--gold); }
 
     /* Footer note */
     .card-footer {
@@ -281,6 +313,10 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQJVZCHT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <div class="bg-layer">
     <div class="bg-grid"></div>
@@ -288,20 +324,20 @@
   </div>
 
   <div class="page-wrap">
-    <a href="index.html" class="logo">GOLD ST <span>SOLUTIONS</span></a>
+    <a href="/" class="logo">GOLD ST <span>SOLUTIONS</span></a>
 
     <div class="card">
-      <div class="eyebrow">Free Email Course</div>
-      <h1 class="card-title">Find Your <span>AI Goldmine</span><br>in 20 Min</h1>
+      <div class="eyebrow">Free 20-Minute Course</div>
+      <h1 class="card-title">Find Your <span>AI Goldmine</span></h1>
       <div class="title-rule"></div>
-      <p class="card-sub">Discover the highest-ROI Claude use cases hiding inside your professional services business — delivered straight to your inbox.</p>
+      <p class="card-sub">A short video and worksheet for services firm leaders who want Claude to give their team hours back, not just another subscription.</p>
 
       <div class="infobox">
-        <div class="infobox-label">What You'll Learn</div>
+        <div class="infobox-label">In 20 minutes, you'll learn</div>
         <ul>
-          <li>How to spot the highest-ROI Claude use cases in your business</li>
-          <li>Which workflows to hand to Claude first — and which to skip</li>
-          <li>The simple framework we use with real clients</li>
+          <li>Where your firm's 600+ hours a year are hiding</li>
+          <li>Why Claude seats sit unused, and how to fix it</li>
+          <li>The 4-Step Framework, plus a worksheet for your firm</li>
         </ul>
       </div>
 
@@ -323,6 +359,7 @@
             <path d="M2 6h8M6 2l4 4-4 4"/>
           </svg>
         </button>
+        <p class="form-error" id="formError" role="alert">Something went wrong sending your details. Please check your connection and try again, or email <a href="mailto:isabelle@goldstsolutions.com">isabelle@goldstsolutions.com</a>.</p>
       </form>
 
       <div class="card-footer">
@@ -332,85 +369,6 @@
     </div>
   </div>
 
-  <!--
-  Leads land in the SAME Google Form / Sheet as the case-study gate.
-  This form submits Name + Email only — the Phone entry is omitted, so
-  rows from this funnel have an empty Phone column.
-  NOTE: the Phone question in the Google Form must be set to NOT required,
-  otherwise submissions without it are silently rejected.
-
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║       AUTO-DELIVERY EMAIL — FREE COURSE OPT-IN                  ║
-  ╠══════════════════════════════════════════════════════════════════╣
-  ║                                                                  ║
-  ║  The empty Phone column is used to detect a free-course lead     ║
-  ║  (vs. a case-study lead, which always has a Phone value).        ║
-  ║                                                                  ║
-  ║  Update the SAME Apps Script trigger already documented in       ║
-  ║  case-study-gate.html (Extensions → Apps Script on the linked    ║
-  ║  Sheet, function onCaseStudySubmit, trigger: On form submit).    ║
-  ║  Replace it with the version below — it keeps the existing       ║
-  ║  internal-notification email and adds an auto-reply to the       ║
-  ║  lead with the Loom video + worksheet when Phone is blank.       ║
-  ║                                                                  ║
-  ║  function onCaseStudySubmit(e) {                                  ║
-  ║    const row   = e.values;                                       ║
-  ║    // row[0]=Timestamp, row[1]=Name, row[2]=Email, row[3]=Phone   ║
-  ║    const name  = row[1];                                         ║
-  ║    const email = row[2];                                         ║
-  ║    const phone = row[3];                                         ║
-  ║    const isFreeCourse = !phone;                                  ║
-  ║                                                                  ║
-  ║    if (isFreeCourse) sendFreeCourseEmail(name, email);           ║
-  ║                                                                  ║
-  ║    const subject = (isFreeCourse                                 ║
-  ║      ? '📚 Free Course Opt-in: ' : '📥 Case Study Download: ')   ║
-  ║      + name;                                                     ║
-  ║    const body = `                                                ║
-  ║  New ${isFreeCourse ? 'free course opt-in' : 'case study download'} ║
-  ║                                                                  ║
-  ║  Name:   ${name}                                                  ║
-  ║  Email:  ${email}                                                 ║
-  ║  Phone:  ${phone || '(none — free course lead)'}                 ║
-  ║    `;                                                            ║
-  ║    GmailApp.sendEmail(                                           ║
-  ║      'isabelle@goldstsolutions.com',                             ║
-  ║      subject, body                                               ║
-  ║    );                                                            ║
-  ║  }                                                               ║
-  ║                                                                  ║
-  ║  function sendFreeCourseEmail(name, email) {                     ║
-  ║    const loomUrl =                                                ║
-  ║      'https://www.loom.com/share/0ee77cf9add04d8eb5b8515ea35f81b8'; ║
-  ║    const worksheetUrl =                                          ║
-  ║      'https://docs.google.com/document/d/' +                    ║
-  ║      '1_qQ5NvwigcAnOQ6DEuvL1HqUquqZTxf_fSDJ-r3rmw4/edit';        ║
-  ║    const firstName = (name || '').split(' ')[0] || 'there';      ║
-  ║                                                                  ║
-  ║    const subject = 'Your Free Course: Find Your AI Goldmine in 20 Min'; ║
-  ║    const body =                                                  ║
-  ║  `Hi ${firstName},                                                ║
-  ║                                                                  ║
-  ║  Thanks for signing up! Here's everything you need:               ║
-  ║                                                                  ║
-  ║  Watch the course video:                                         ║
-  ║  ${loomUrl}                                                      ║
-  ║                                                                  ║
-  ║  Download the worksheet to follow along:                         ║
-  ║  ${worksheetUrl}                                                 ║
-  ║                                                                  ║
-  ║  Talk soon,                                                      ║
-  ║  Gold St Solutions`;                                             ║
-  ║                                                                  ║
-  ║    GmailApp.sendEmail(email, subject, body);                     ║
-  ║  }                                                               ║
-  ║                                                                  ║
-  ║  Save → re-run/re-authorize the existing trigger (no new         ║
-  ║  trigger needed, it's the same onCaseStudySubmit function).      ║
-  ║  Test by submitting this form with a blank Phone.                ║
-  ║                                                                  ║
-  ╚══════════════════════════════════════════════════════════════════╝
-  -->
   <script>
     const GOOGLE_FORM_ID   = '1FAIpQLScsfySZVxtnokQyjUD0cDuE2uy6TqGALyRFDusR_P84Ay1NnQ';
     const ENTRY_NAME       = 'entry.2051845793';  // Full Name
@@ -422,9 +380,8 @@
       formData.append(ENTRY_EMAIL, email);
 
       const url = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
-      try {
-        await fetch(url, { method: 'POST', body: formData, mode: 'no-cors' });
-      } catch (err) {} // Silent fail — CORS expected, submission still goes through
+      // no-cors hides Google's response, so only a network failure is detectable
+      await fetch(url, { method: 'POST', body: formData, mode: 'no-cors' });
     }
 
     async function handleSubmit(e) {
@@ -433,10 +390,25 @@
       const email = document.getElementById('email').value.trim();
       if (!name || !email) return;
 
-      await submitToGoogleForm(name, email);
+      const btn = e.target.querySelector('.btn-submit');
+      const err = document.getElementById('formError');
+      if (btn.disabled) return;
+      btn.disabled = true;
+      const label = btn.firstChild.textContent;
+      btn.firstChild.textContent = 'Sending… ';
+      err.classList.remove('show');
 
-      sessionStorage.setItem('gs_name', name);
-      window.location.href = 'free-course-thanks.html';
+      try {
+        await submitToGoogleForm(name, email);
+      } catch (networkErr) {
+        btn.disabled = false;
+        btn.firstChild.textContent = label;
+        err.classList.add('show');
+        return;
+      }
+
+      try { sessionStorage.setItem('gs_name', name); } catch (storageErr) {}
+      window.location.href = '/free-course-thanks';
     }
   </script>
 </body>

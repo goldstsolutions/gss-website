@@ -22,20 +22,20 @@
   <title>Gold St Solutions — Claude Consulting</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2307090D'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='18' fill='%23D4B96A'>G</text></svg>">
   <!-- SEO -->
-  <meta name="description" content="Gold St Solutions is a Boston-based Claude consulting firm helping small and mid-sized services firms eliminate admin work by customizing Anthropic's Claude — strategy, customization, and managed services.">
+  <meta name="description" content="Gold St Solutions is a Boston-based Claude consulting firm helping 7–10 figure services firms double their capacity with Claude Team & Enterprise — rollout, security, custom skills, and autonomous agents.">
   <link rel="canonical" href="https://goldstsolutions.com/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gold St Solutions — Claude Consulting">
-  <meta property="og:description" content="Boston-based Claude consulting for SMBs. Strategy, customization, and managed services.">
+  <meta property="og:description" content="Claude Team & Enterprise consulting for 7–10 figure services firms. Rollout, security, custom skills, and agents.">
   <meta property="og:url" content="https://goldstsolutions.com/">
   <meta property="og:image" content="https://goldstsolutions.com/branding_assets/logo-wordmark.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gold St Solutions — Claude Consulting">
-  <meta name="twitter:description" content="Boston-based Claude consulting for SMBs.">
+  <meta name="twitter:description" content="Claude Team & Enterprise consulting for 7–10 figure services firms.">
   <meta name="twitter:image" content="https://goldstsolutions.com/branding_assets/logo-wordmark.png">
 
   <!-- Structured Data -->
@@ -44,7 +44,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Gold St Solutions",
-    "description": "Claude consulting for small and mid-sized businesses",
+    "description": "Claude Team & Enterprise consulting for 7–10 figure services firms",
     "url": "https://goldstsolutions.com",
     "telephone": "617-943-6865",
     "email": "isabelle@goldstsolutions.com",
@@ -269,7 +269,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 220px 64px 128px;
+      padding: 110px 64px 104px;
     }
 
     .hero-grid {
@@ -303,7 +303,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 820px;
+      max-width: 1000px;
     }
 
     .hero-title {
@@ -476,6 +476,20 @@
       margin-bottom: 6px;
       display: block;
     }
+
+    .pillar-icon {
+      width: 60px; height: 60px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s cubic-bezier(.22,1,.36,1);
+    }
+    .pillar-icon img { width: 28px; height: 28px; display: block; }
+    .pillar:hover .pillar-icon { transform: scale(1.06); }
 
     .pillar-label {
       font-family: 'Syne', sans-serif;
@@ -753,34 +767,59 @@
       flex-shrink: 0;
     }
 
+    .proof-head { text-align: center; padding: 72px 64px 0; }
+    .proof-head .section-title { margin-bottom: 0; }
+    .proof-cta { display: flex; justify-content: center; padding: 0 24px 72px; }
+
     .testimonial-scroll-outer {
-      overflow: hidden;
-      padding: 56px 0;
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 100px, #000 calc(100% - 100px), transparent);
-      mask-image: linear-gradient(to right, transparent, #000 100px, #000 calc(100% - 100px), transparent);
+      --pad: 64px;
+      --gap: 24px;
+      --per-view: 3;
+      --card-w: calc((100cqw - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+      container-type: inline-size;
+      margin: 0 var(--pad);
+      position: relative;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 56px 0 32px;
     }
+    .testimonial-scroll-outer::-webkit-scrollbar { display: none; }
     .testimonial-track {
       display: flex;
-      gap: 24px;
+      gap: var(--gap);
       width: max-content;
-      animation: testimonial-scroll 45s linear infinite;
-    }
-    .testimonial-track:hover {
-      animation-play-state: paused;
-    }
-    @keyframes testimonial-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
     .testimonial-card {
       background: var(--navy);
       border: 1px solid var(--gold-border);
       border-radius: 8px;
       padding: 40px 44px;
-      width: clamp(440px, 38vw, 640px);
+      width: var(--card-w);
       flex-shrink: 0;
       position: relative;
+      scroll-snap-align: start;
     }
+
+    @media (max-width: 1100px) { .testimonial-scroll-outer { --per-view: 2; } }
+
+    .testimonial-nav { display: flex; justify-content: center; gap: 12px; padding-bottom: 40px; }
+    .testimonial-btn {
+      width: 44px; height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold-border-mid);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background .18s, border-color .18s, opacity .18s, transform .2s cubic-bezier(.22,1,.36,1);
+    }
+    .testimonial-btn:hover { background: var(--gold-dim); border-color: var(--gold); }
+    .testimonial-btn:active { transform: scale(.94); }
+    .testimonial-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .testimonial-btn:disabled { opacity: .3; cursor: default; background: transparent; border-color: var(--gold-border-mid); transform: none; }
     .testimonial-card::before {
       content: '';
       position: absolute;
@@ -847,8 +886,10 @@
 
     @media (max-width: 768px) {
       .trust-bar { padding: 28px 24px; gap: 28px; }
-      .testimonial-scroll-outer { padding: 40px 0; }
-      .testimonial-card { width: 85vw; padding: 28px 24px; }
+      .testimonial-scroll-outer { --pad: 24px; --gap: 16px; --per-view: 1; padding: 40px 0 28px; }
+      .proof-head { padding: 56px 24px 0; }
+      .proof-cta { padding-bottom: 56px; }
+      .testimonial-card { padding: 28px 24px; }
       .trust-sep { display: none; }
     }
 
@@ -1141,18 +1182,18 @@
 
     <div class="hero-content">
       <img src="images.png" alt="Claude" class="a1" style="width:40px;height:40px;border-radius:9px;display:block;margin:0 auto 18px;">
-      <div class="eyebrow a1">Claude Consulting</div>
+      <div class="eyebrow a1">Claude Teams &amp; Enterprise Consulting</div>
 
       <h1 class="hero-title a2">
-        Do You Want To<br><span>Focus on Growth</span><br>— Not Admin?
+        Do You Want<br><span>Growth</span> Without<br>Headcount?
       </h1>
 
       <p class="hero-sub a3">
-        We help services firms grow revenue without headcount, through done-for-you Claude customizations in 90 days. Take the free course to learn the 4-Step Framework used to help firms eliminate 600+ hours a year with Claude.
+        We help 7–10 figure services firms double their capacity by maximizing Claude Team &amp; Enterprise accounts. Take the free course to learn the 4-Step Framework used to help firms eliminate 600+ hours a year in 90 days with Claude.
       </p>
 
       <div class="hero-ctas a4">
-        <a href="free-course-optin.html" class="btn-hero-cta">YES - SHOW ME HOW</a>
+        <a href="/free-course-optin" class="btn-hero-cta">YES - SHOW ME HOW</a>
       </div>
     </div>
   </section>
@@ -1170,30 +1211,35 @@
       <div class="trust-sep"></div>
       <div class="trust-stat">
         <img src="images.png" alt="Claude" style="height:20px;width:20px;border-radius:5px;display:block;">
-        <span class="trust-lbl">Claude Expert</span>
+        <span class="trust-lbl">Claude Team &amp; Enterprise</span>
       </div>
       <div class="trust-sep"></div>
       <div class="trust-stat">
-        <span class="trust-val">SMB</span>
-        <span class="trust-lbl">Focused Agency</span>
+        <span class="trust-val">7–10</span>
+        <span class="trust-lbl">Figure Firms</span>
       </div>
     </div>
 
     <!-- Testimonial -->
+    <div class="proof-head">
+      <div class="eyebrow">Client Testimonials</div>
+      <h2 class="section-title">Results From <span>Our Customers</span></h2>
+    </div>
     <div class="testimonial-scroll-outer">
       <div class="testimonial-track">
         <!-- set 1 -->
         <div class="testimonial-card">
           <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">I had systems that I had been struggling to organize and automate for over 5 years. Gold St Solutions was able to come in, instantly understand the complexities and in a matter of days build automation systems that will make my operation 4x more efficient and allow me to scale my clientele far beyond what I could manage before.</p>
+          <p class="testimonial-text">Working with Isabelle at Gold St Solutions was a very effective way to accelerate Claude proficiency. She was very diligent in learning about my project, very flexible in her approach and a skilled communicator [...] and is very good helping you overcome technical obstacles and missteps. I highly recommend Isabelle and Gold St.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar"><img src="Bijan.jpeg" alt="Bijan Taghavi"></div>
+            <div class="testimonial-avatar"><img src="mayflower.png" alt="Mayflower Advisors"></div>
             <div>
-              <div class="testimonial-name">Bijan Taghavi</div>
-              <div class="testimonial-role">Owner, Bijan Taghavi Education</div>
+              <div class="testimonial-name">Lou Chong</div>
+              <div class="testimonial-role">VP, Mayflower Advisors</div>
             </div>
           </div>
         </div>
+        
         <div class="testimonial-card">
           <div class="testimonial-quote-mark">&ldquo;</div>
           <p class="testimonial-text">As a result of working with Gold St Solutions, we've gained clearer visibility into the opportunities for improvement within our processes. In particular, it has highlighted how AI can be leveraged to streamline repetitive tasks, improve consistency, and reduce manual effort.</p>
@@ -1202,6 +1248,17 @@
             <div>
               <div class="testimonial-name">Sonelle Van Voorst</div>
               <div class="testimonial-role">Process Improvement Manager, Fireblade Aviation</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-text">I had systems that I had been struggling to organize and automate for over 5 years. Gold St Solutions was able to come in, instantly understand the complexities and in a matter of days build automation systems that will make my operation 4x more efficient and allow me to scale my clientele far beyond what I could manage before.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="Bijan.jpeg" alt="Bijan Taghavi"></div>
+            <div>
+              <div class="testimonial-name">Bijan Taghavi</div>
+              <div class="testimonial-role">Owner, Bijan Taghavi Education</div>
             </div>
           </div>
         </div>
@@ -1222,123 +1279,37 @@
           <div class="testimonial-author">
             <div class="testimonial-avatar">C</div>
             <div>
-              <div class="testimonial-name">Client</div>
+              <div class="testimonial-name">Anonymous Client</div>
               <div class="testimonial-role">Managing Partner, Investment Firm</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">Working with Isabelle at Gold St Solutions was a very effective way to accelerate Claude proficiency. She was very diligent in learning about my project, very flexible in her approach and a skilled communicator [...] and is very good helping you overcome technical obstacles and missteps. I highly recommend Isabelle and Gold St.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><img src="mayflower.png" alt="Mayflower Advisors"></div>
-            <div>
-              <div class="testimonial-name">Lou Chong</div>
-              <div class="testimonial-role">VP, Mayflower Advisors</div>
-            </div>
-          </div>
-        </div>
-        <!-- set 2 (duplicate for seamless loop) -->
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">I had systems that I had been struggling to organize and automate for over 5 years. Gold St Solutions was able to come in, instantly understand the complexities and in a matter of days build automation systems that will make my operation 4x more efficient and allow me to scale my clientele far beyond what I could manage before.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><img src="Bijan.jpeg" alt=""></div>
-            <div>
-              <div class="testimonial-name">Bijan Taghavi</div>
-              <div class="testimonial-role">Owner, Bijan Taghavi Education</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">As a result of working with Gold St Solutions, we've gained clearer visibility into the opportunities for improvement within our processes. In particular, it has highlighted how AI can be leveraged to streamline repetitive tasks, improve consistency, and reduce manual effort.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><img src="Fireblade.png" alt=""></div>
-            <div>
-              <div class="testimonial-name">Sonelle Van Voorst</div>
-              <div class="testimonial-role">Process Improvement Manager, Fireblade Aviation</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">Working with Gold St Solutions enabled us to reduce 3 hours per day of cold outreach to followers/leads. For a self-founded company, this allowed us to prioritize producing high quality content and spend time on new marketing campaigns.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><img src="fullcourt.jpg" alt=""></div>
-            <div>
-              <div class="testimonial-name">Craig Rosen</div>
-              <div class="testimonial-role">Owner, Fullcourt Fitness</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">Isabelle is an absolute rockstar and has my highest recommendation, you won't regret working with her, trust me.</p>
+          <p class="testimonial-text">Gold St Solutions successfully transformed our operational model by integrating advanced AI workflows and orchestration systems. Their tailored solutions directly optimized our business processes, driving measurable improvements in efficiency.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">C</div>
             <div>
-              <div class="testimonial-name">Client</div>
-              <div class="testimonial-role">Managing Partner, Investment Firm</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card" aria-hidden="true">
-          <div class="testimonial-quote-mark">&ldquo;</div>
-          <p class="testimonial-text">Working with Isabelle at Gold St Solutions was a very effective way to accelerate Claude proficiency. She was very diligent in learning about my project, very flexible in her approach and a skilled communicator [...] and is very good helping you overcome technical obstacles and missteps. I highly recommend Isabelle and Gold St.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar"><img src="mayflower.png" alt=""></div>
-            <div>
-              <div class="testimonial-name">Lou Chong</div>
-              <div class="testimonial-role">VP, Mayflower Advisors</div>
+              <div class="testimonial-name">Anonymous Client</div>
+              <div class="testimonial-role">CEO, Non-Profit</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       WHO WE SERVE
-       ══════════════════════════════════════════ -->
-  <section class="section bg-void" id="about">
-    <div class="section-head">
-      <div class="eyebrow">Who We Serve</div>
-      <div class="rule"></div>
-      <h2 class="section-title">Built for <span>Growing</span> Services Firms</h2>
-      <p class="section-desc">We specialize in businesses of <strong>5–50 employees</strong> experiencing the following:</p>
+    <div class="testimonial-nav">
+      <button type="button" class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6H2M6 2L2 6l4 4"/></svg>
+      </button>
+      <button type="button" class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+      </button>
     </div>
-
-    <div class="pain-cards">
-          <div class="pain-card scroll-fade">
-            <div class="pain-ico">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <div class="pain-copy">
-              <strong>High value people, low value tasks</strong>
-              <p>Your best people spend half their time on repetitive work across disconnected systems.</p>
-            </div>
-          </div>
-
-          <div class="pain-card scroll-fade">
-            <div class="pain-ico">
-              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-7"/></svg>
-            </div>
-            <div class="pain-copy">
-              <strong>Not Sure Where to Start</strong>
-              <p>You know AI should be helping more. You just can't figure out what to actually automate.</p>
-            </div>
-          </div>
-
-          <div class="pain-card scroll-fade">
-            <div class="pain-ico">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-            </div>
-            <div class="pain-copy">
-              <strong>Experimented with AI, saw minimal results</strong>
-              <p>You've experimented with tools like ChatGPT or Claude, but your day-to-day work hasn't changed.</p>
-            </div>
-          </div>
+    <div class="proof-cta">
+      <a href="/free-course-optin" class="btn-gold" style="font-size:12px;padding:16px 32px;">
+        Learn How We Do It
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+      </a>
     </div>
   </section>
 
@@ -1349,39 +1320,52 @@
     <div class="section-head">
       <div class="eyebrow">What We Do</div>
       <div class="rule"></div>
-      <h2 class="section-title">Eliminate Admin. <span>Unlock Growth.</span></h2>
-      <p class="section-desc">We help services firms eliminate the manual work holding them back from servicing more customers, and growing faster.</p>
+      <h2 class="section-title">Hand It Off. <span>Unlock Growth.</span></h2>
+      <p class="section-desc">We guide services firms through handing daily operations to Claude, so the team can serve more clients and grow faster.</p>
     </div>
 
     <div class="pillars-grid">
 
       <div class="pillar scroll-fade">
-        <span class="pillar-num">01</span>
-        <div class="pillar-label">Step One</div>
-        <div class="pillar-title">Find Your Highest-ROI Use Cases</div>
-        <p class="pillar-body">Take the free course and find your AI goldmine. In 20 minutes, see exactly where Claude can save your firm the most time and money.</p>
-        <a href="free-course-optin.html" class="btn-ghost" style="margin-top:22px;">
-          Take the Free Course
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-        </a>
+        <div class="pillar-icon"><img src="roadmap-icons/transfer.png" alt="" width="28" height="28"></div>
+        <div class="pillar-label">Step 01 &middot; Transfer</div>
+        <div class="pillar-title">Nothing Left Behind</div>
+        <p class="pillar-body">Back up and migrate skills, projects, and memory from personal accounts.</p>
       </div>
 
       <div class="pillar scroll-fade">
-        <span class="pillar-num">02</span>
-        <div class="pillar-label">Step Two</div>
-        <div class="pillar-title">We'll Tell You What's Feasible</div>
-        <p class="pillar-body">Book an AI Audit. We'll tell you what's worth automating and what isn't — no frustrating trial and error.</p>
-        <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:22px;">
-          Book an AI Audit
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-        </a>
+        <div class="pillar-icon"><img src="roadmap-icons/secure.png" alt="" width="28" height="28"></div>
+        <div class="pillar-label">Step 02 &middot; Secure</div>
+        <div class="pillar-title">Your Data, Protected</div>
+        <p class="pillar-body">Know exactly where client data goes. Settings, sharing, and connector permissions locked down.</p>
       </div>
 
       <div class="pillar scroll-fade">
-        <span class="pillar-num">03</span>
-        <div class="pillar-label">Step Three</div>
-        <div class="pillar-title">We Build It For You</div>
-        <p class="pillar-body">If it makes sense, we build it — following the same 4-step framework that's delivered 600+ hrs/yr back to other services businesses. You can focus on growing the business, not becoming an AI expert.</p>
+        <div class="pillar-icon"><img src="roadmap-icons/brain.png" alt="" width="28" height="28"></div>
+        <div class="pillar-label">Step 03 &middot; Brain</div>
+        <div class="pillar-title">One Brain, Whole Team</div>
+        <p class="pillar-body">A central second brain connected to your email, Drive, Slack, and CRM.</p>
+      </div>
+
+      <div class="pillar scroll-fade">
+        <div class="pillar-icon"><img src="roadmap-icons/train.png" alt="" width="28" height="28"></div>
+        <div class="pillar-label">Step 04 &middot; Train</div>
+        <div class="pillar-title">Build Your Star Employee</div>
+        <p class="pillar-body">Custom skills for every stage: lead, sales, onboarding, delivery, retention.</p>
+      </div>
+
+      <div class="pillar scroll-fade">
+        <div class="pillar-icon"><img src="roadmap-icons/handoff.png" alt="" width="28" height="28"></div>
+        <div class="pillar-label">Step 05 &middot; Handoff</div>
+        <div class="pillar-title">Capacity, Doubled</div>
+        <p class="pillar-body">Skills, scheduled tasks, and agents running without human intervention.</p>
+      </div>
+
+      <div class="pillar scroll-fade">
+        <div class="pillar-icon"><img src="roadmap-icons/growth.png" alt="" width="28" height="28"></div>
+        <div class="pillar-label">Step 06 &middot; Growth</div>
+        <div class="pillar-title">Iterate As You Grow</div>
+        <p class="pillar-body">Continuous tuning, quarterly updates, and one dashboard to monitor everything.</p>
       </div>
 
     </div>
@@ -1391,9 +1375,9 @@
        MID-PAGE CTA STRIP
        ══════════════════════════════════════════ -->
   <div class="mid-cta-strip">
-    <p class="mid-cta-q">Ready to get more out of Claude?</p>
-    <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-ghost">
-      Book a Free 30-Min Call
+    <p class="mid-cta-q">Ready to hand the work to Claude?</p>
+    <a href="/free-course-optin" class="btn-ghost">
+      Take the Free Course
       <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
     </a>
   </div>
@@ -1401,7 +1385,7 @@
   <!-- ══════════════════════════════════════════
        FOUNDER
        ══════════════════════════════════════════ -->
-  <section class="section bg-mid">
+  <section class="section bg-mid" id="about">
     <div class="founder-wrap">
 
       <div class="founder-photo-box">
@@ -1422,10 +1406,10 @@
         <div class="founder-role">Founder — Gold St Solutions</div>
 
         <p class="founder-bio">
-          Isabelle founded Gold St Solutions to give SMBs access to the same AI leverage that Fortune 500 companies have had for years — by customizing simple tools SMBs are already using like Claude.
+          Isabelle founded Gold St Solutions to give growing firms the same AI leverage Fortune 500 companies have had for years — by rolling out Claude Team &amp; Enterprise across the business.
         </p>
         <p class="founder-bio">
-          She brings <strong>5+ years of experience from Accenture</strong>, where she led AI transformations for some of the world's largest companies. Now she applies that same expertise to help SMBs cut manual tasks, so they can focus on higher value work.
+          She brings <strong>5+ years of experience from Accenture</strong>, where she led AI transformations for some of the world's largest companies. Now she applies that same expertise to help growing firms hand off operations to Claude, so teams focus on growth.
         </p>
 
         <div class="accolade">
@@ -1473,7 +1457,7 @@
       <div class="eyebrow" style="justify-content:center">Free Offer</div>
       <h2 class="cta-band-title">Book Your <span>AI Audit</span></h2>
       <p class="cta-band-sub">
-        Free 30-minute call where we map your top Claude opportunities and estimate the business impact. You walk away with a clear roadmap of quick wins to eliminate admin in weeks.
+        Free 30-minute call where we map where your firm sits on the roadmap and estimate the business impact. You walk away with a clear plan to hand work off to Claude.
       </p>
 
       <div class="cta-offer-badges" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:28px;">
@@ -1508,8 +1492,8 @@
 
   <!-- Mobile menu -->
   <nav class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMobileMenu()">Who We Serve</a>
-    <a href="#services" onclick="closeMobileMenu()">What We Do</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     <div class="mobile-cta">
       <a href="https://calendly.com/isabelle-goldstsolutions/30min" target="_blank" rel="noopener" class="btn-gold" onclick="closeMobileMenu()">Book a Call</a>
@@ -1531,6 +1515,24 @@
     document.addEventListener('click', e => {
       if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
     });
+
+    // Testimonials: click through
+    const tScroller = document.querySelector('.testimonial-scroll-outer');
+    const tCards = [...tScroller.querySelectorAll('.testimonial-card')];
+    const tPrev = document.getElementById('testimonialPrev');
+    const tNext = document.getElementById('testimonialNext');
+    const tStep = () => tCards[1].offsetLeft - tCards[0].offsetLeft;
+    function tCurrent() { return Math.round(tScroller.scrollLeft / tStep()); }
+    function tGo(i) { tScroller.scrollTo({ left: Math.max(0, i) * tStep(), behavior: 'smooth' }); }
+    function tUpdate() {
+      const max = tScroller.scrollWidth - tScroller.clientWidth;
+      tPrev.disabled = tScroller.scrollLeft <= 2;
+      tNext.disabled = tScroller.scrollLeft >= max - 2;
+    }
+    tPrev.addEventListener('click', () => tGo(tCurrent() - 1));
+    tNext.addEventListener('click', () => tGo(tCurrent() + 1));
+    tScroller.addEventListener('scroll', tUpdate, { passive: true });
+    tUpdate();
 
     // Scroll animations
     const observer = new IntersectionObserver(entries => {
